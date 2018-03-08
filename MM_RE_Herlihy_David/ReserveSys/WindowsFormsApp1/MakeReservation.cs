@@ -48,21 +48,32 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            //Checks for availible rooms during selected dates and of the selected type
             DataSet ds = new DataSet();
             cboRoomNo.Items.Clear();
-            ds = Reservation.getUnoccupiedRooms(ds, Convert.ToString(dtpArrDate.Value), Convert.ToString(dtpDeptDate.Value), cboType.Text.Substring(0, 2));
+            ds = Reservation.getUnoccupiedRooms(ds, dtpArrDate.Value.ToString("yyyy-MM-dd"), dtpDeptDate.Value.ToString("yyyy-MM-dd"), cboType.Text.Substring(0, 2));
 
-            for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
+            //Checks if there are no rooms of the selected type availible during the selected dates and asks user to change their selection.
+            if (ds.Tables["ss"].Rows.Count == 0)
             {
-                cboRoomNo.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
+                MessageBox.Show("There is no availible rooms of this type during the period selected. Please select another Date/Type", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cboType.Focus();
             }
+            else
+            {
 
-            newRes.setArrivalDate(dtpArrDate.Value.ToString("yyyy-MM-dd"));
-            newRes.setDeptDate(dtpDeptDate.Value.ToString("yyyy-MM-dd"));
+                for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
+                {
+                    cboRoomNo.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
+                }
 
-            //Showing Next Step
-            grpSelectRes.Hide();
-            grpSelectRoom.Show();
+                newRes.setArrivalDate(dtpArrDate.Value.ToString("yyyy-MM-dd"));
+                newRes.setDeptDate(dtpDeptDate.Value.ToString("yyyy-MM-dd"));
+
+                //Showing Next Step
+                grpSelectRes.Hide();
+                grpSelectRoom.Show();
+            }
         }
 
         private void btnSelectRoom_Click(object sender, EventArgs e)
@@ -76,6 +87,7 @@ namespace WindowsFormsApp1
             }
 
             newRes.setRoomNO(Convert.ToUInt16(cboRoomNo.Text.Substring(0, 3)));
+            newRes.setCost((Convert.ToDateTime(dtpDeptDate.Text) - Convert.ToDateTime(dtpArrDate.Text)).TotalDays * Reservation.findRate(newRes.getRoomNo()));
 
             //Show Next Step
             grpSelectRoom.Hide();

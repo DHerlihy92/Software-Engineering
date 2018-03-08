@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
         private string arrivalDate;
         private string deptDate;
         private string resStatus;
+        private double cost;
         private int custID;
         private int roomNo;
 
@@ -35,6 +36,11 @@ namespace WindowsFormsApp1
         public void setResStatus(string ResStatus)
         {
             resStatus = ResStatus;
+        }
+
+        public void setCost(double Cost)
+        {
+            cost = Cost;
         }
 
         public void setCustID(int CustID)
@@ -65,6 +71,11 @@ namespace WindowsFormsApp1
         public string getResStatus()
         {
             return resStatus;
+        }
+
+        public double getCost()
+        {
+            return cost;
         }
 
         public int getCustID()
@@ -113,7 +124,7 @@ namespace WindowsFormsApp1
             dr.Read();
 
             if (dr.IsDBNull(0))
-                nextRes = 101;
+                nextRes = 1001;
             else
                 nextRes = Convert.ToInt16(dr.GetValue(0)) + 1;
 
@@ -126,9 +137,9 @@ namespace WindowsFormsApp1
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String strSQL = "SELECT * FROM Rooms rm WHERE rm.RoomNo NOT IN (SELECT DISTINCT RoomNo FROM Reservations rs WHERE(rs.Arrival_Date BETWEEN '"+ ArrivalDate +
-                            "' AND '" + DeptDate + "') OR(rs.Dept_Date BETWEEN '" + ArrivalDate + "' AND '" +DeptDate +"') OR (rs.Arrival_Date < '" + ArrivalDate + 
-                            "' AND rs.Dept_Date > '" + DeptDate +"')) AND rm.Room_Type = '" + Type +  "'";
+            String strSQL = "SELECT * FROM Rooms rm WHERE rm.RoomNo NOT IN (SELECT DISTINCT RoomNo FROM Reservations rs WHERE(rs.Arrival_Date BETWEEN DATE '"+ ArrivalDate +
+                            "' AND DATE '" + DeptDate + "') OR(rs.Dept_Date BETWEEN DATE '" + ArrivalDate + "' AND DATE '" +DeptDate +"') OR (rs.Arrival_Date < DATE '" + ArrivalDate + 
+                            "' AND rs.Dept_Date > DATE '" + DeptDate +"')) AND rm.Room_Type = '" + Type +  "'";
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
@@ -147,8 +158,8 @@ namespace WindowsFormsApp1
 
             conn.Open();
 
-            String strSQL = "INSERT INTO Reservations VALUES(" +this.resNo + ",DATE '" +this.arrivalDate + "',DATE '" + this.deptDate + "','" + this.resStatus + "'," +
-                + this.custID + "," + this.roomNo +")";
+            String strSQL = "INSERT INTO Reservations VALUES(" +this.resNo + ",DATE '" +this.arrivalDate + "',DATE '" + this.deptDate + "','" + this.resStatus + "',"
+                + this.cost + "," + this.custID + "," + this.roomNo +")";
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
             cmd.ExecuteNonQuery();
@@ -156,6 +167,57 @@ namespace WindowsFormsApp1
             conn.Close();
         }
 
+        public static double findRate( int RoomNo)
+        {
+            double roomRate;
 
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            String strSQL = "SELECT Room_Rate FROM Rates WHERE Room_Type = (Select Room_Type FROM Rooms WHERE RoomNo = " + RoomNo+")";
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+
+            roomRate = Convert.ToDouble(dr.GetValue(0));
+
+            conn.Close();
+            return roomRate;
+
+        }
+
+        public static DataSet getCustReservations(DataSet DS, string FName, string SName)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String strSQL = "SELECT * FROM Reservations rs WHERE rs.CustID IN (SELECT cs.CustID FROM Customers cs WHERE SName LIKE '%" + SName.ToUpper() + "%' AND FName LIKE '%" + FName.ToUpper()
+                + "%')";
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(DS, "ss");
+
+            conn.Close();
+
+            return DS;
+        }
+
+        public static void changeResStatus(int ResNo, string status)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            String strSQL = "UPDATE Reservations SET Res_Status = '" + status + "' WHERE ResNo = " + ResNo;
+  
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }

@@ -150,7 +150,7 @@ namespace WindowsFormsApp1
             dr.Read();
 
             if (dr.IsDBNull(0))
-                nextCust = 101;
+                nextCust = 1001;
             else
                 nextCust = Convert.ToInt16(dr.GetValue(0)) + 1;
 

@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
     public partial class frmCancelReservation : Form
     {
         frmMainMenu parent;
+
         public frmCancelReservation()
         {
             InitializeComponent();
@@ -63,9 +64,27 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            //Showing next step
-            grpSelectCust.Hide();
-            grpSelectRes.Show();
+            DataSet ds = new DataSet();
+            cboReservation.Items.Clear();
+            ds = Reservation.getCustReservations(ds, txtFname.Text, txtSname.Text);
+
+            if (ds.Tables["ss"].Rows.Count == 0)
+            {
+                MessageBox.Show("This customer has no active reservations.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtFname.Focus();
+            }
+
+            else
+            {
+                for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
+                {
+                    cboReservation.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
+                }
+
+                //Showing next step
+                grpSelectCust.Hide();
+                grpSelectRes.Show();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -77,33 +96,40 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            //Display Yes/No dialog confirming selection
-            DialogResult dResult =MessageBox.Show("Are You sure this is the correct reservation?", "Cancel Reservation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-            if (dResult == DialogResult.Yes)
+            if (Convert.ToDateTime(cboReservation.Text.Substring(5,10)).DayOfYear > (DateTime.Now.DayOfYear+1))
             {
-                //Display confirmation message
-                MessageBox.Show("You have cancelled a Reservation.", "Reservation Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Display Yes/No dialog confirming selection
+                DialogResult dResult = MessageBox.Show("Are you sure this is the correct reservation?", "Cancel Reservation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                //Resetting UI
-                txtFname.Text = "";
-                txtSname.Text = "";
-                cboReservation.SelectedIndex = -1;
+                if (dResult == DialogResult.Yes)
+                {
+                    //Display confirmation message
+                    MessageBox.Show("You have cancelled a Reservation.", "Reservation Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                grpSelectRes.Hide();
-                grpSelectCust.Show();
+                    Reservation.changeResStatus(Convert.ToInt16(cboReservation.Text.Substring(0, 4)), "CL");
+
+                    //Resetting UI
+                    txtFname.Text = "";
+                    txtSname.Text = "";
+                    cboReservation.SelectedIndex = -1;
+
+                    grpSelectRes.Hide();
+                    grpSelectCust.Show();
+                }
+
+                else if(dResult == DialogResult.No)
+                {
+                    //Resetting UI
+                    txtFname.Text = "";
+                    txtSname.Text = "";
+                    cboReservation.SelectedIndex = -1;
+
+                    grpSelectRes.Hide();
+                    grpSelectCust.Show();
+                }
             }
 
-            else if(dResult == DialogResult.No)
-            {
-                //Resetting UI
-                txtFname.Text = "";
-                txtSname.Text = "";
-                cboReservation.SelectedIndex = -1;
-
-                grpSelectRes.Hide();
-                grpSelectCust.Show();
-            }
+            
         }
     }
 }
