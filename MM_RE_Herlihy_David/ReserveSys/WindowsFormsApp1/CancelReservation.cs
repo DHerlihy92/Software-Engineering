@@ -66,7 +66,7 @@ namespace WindowsFormsApp1
 
             DataSet ds = new DataSet();
             cboReservation.Items.Clear();
-            ds = Reservation.getCustReservations(ds, txtFname.Text, txtSname.Text);
+            ds = Reservation.getReservations(ds, txtFname.Text, txtSname.Text);
 
             if (ds.Tables["ss"].Rows.Count == 0)
             {

@@ -189,7 +189,7 @@ namespace WindowsFormsApp1
 
         }
 
-        public static DataSet getCustReservations(DataSet DS, string FName, string SName)
+        public static DataSet getReservations(DataSet DS, string FName, string SName)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
@@ -219,5 +219,77 @@ namespace WindowsFormsApp1
 
             conn.Close();
         }
+
+        public static DataSet getCheckIns(DataSet DS, String Date)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String strSQL = "SELECT * from Reservations WHERE Res_Status = 'B' AND Arrival_Date =" + Date;
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(DS, "ss");
+
+            conn.Close();
+
+            return DS;
+        }
+
+        public static DataSet getCheckOuts(DataSet DS, String Date)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String strSQL = "SELECT * from Reservations WHERE Res_Status = 'CI' AND Dept_Date =" + Date;
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(DS, "ss");
+
+            conn.Close();
+
+            return DS;
+        }
+
+        public static DataSet getNoShows(DataSet DS)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String strSQL = "SELECT * from Reservations WHERE Res_Status = 'B' AND Arrival_Date < SYSDATE-1";
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(DS, "ss");
+
+            conn.Close();
+
+            return DS;
+        }
+
+        public static DataSet getMonthlyData(DataSet DS, String Year)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //connection name conn.Open();
+            String strSQL = "SELECT TO_CHAR(Pay_Date,'MM'), SUM(Amount_Paid) FROM Payments WHERE Pay_Date LIKE '%" + Year + "' GROUP BY TO_CHAR(Pay_Date, 'MM') " +
+                            "ORDER BY TO_CHAR(Pay_Date, 'MM')";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //cmd.CommandType = CommandType.Text;
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(DS, "ss");
+
+            conn.Close();
+
+            return DS;
+
+        }
+
     }
 }

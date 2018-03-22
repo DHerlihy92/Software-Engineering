@@ -45,8 +45,20 @@ namespace WindowsFormsApp1
 
             if (dResult == DialogResult.Yes)
             {
+                
+
+                Payment newPayment = new Payment();
+
+                newPayment.setPayID(Payment.nextPayID());
+                newPayment.setPayDate(DateTime.Now.ToString("yyyy-MM-dd"));
+                newPayment.setResNo(Convert.ToInt16(cboSelectRes.Text.Substring(0, 4)));
+
+                newPayment.addPayment();
+                
                 //Display Confirmation Message
                 MessageBox.Show("The selected reservation has been checked-in and the customer has been charged.", "Check In Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Reservation.changeResStatus(Convert.ToInt16(cboSelectRes.Text.Substring(0, 4)), "CI");
 
                 //Resetting UI
                 cboSelectRes.SelectedIndex = -1;
@@ -56,6 +68,27 @@ namespace WindowsFormsApp1
                 //Resetting UI
                 cboSelectRes.SelectedIndex = -1;
             }
+        }
+
+        private void frmCheckIn_Load(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+            cboSelectRes.Items.Clear();
+            ds = Reservation.getCheckIns(ds, DateTime.Now.ToString("yyyy-MM-dd"));
+
+            if (ds.Tables["ss"].Rows.Count == 0)
+            {
+                MessageBox.Show("There are rooms availible to be checked-in", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cboSelectRes.Focus();
+            }
+            else
+            {
+                for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
+                {
+                    cboSelectRes.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
+                }
+            }
+
         }
     }
 }

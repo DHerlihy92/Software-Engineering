@@ -2,6 +2,7 @@
 --ReserveSys
 --This script creates the ReserveSys databases
 
+DROP TABLE Payments;
 DROP TABLE Reservations;
 DROP TABLE Customers;
 DROP TABLE Rooms;
@@ -45,7 +46,15 @@ CONSTRAINT pk_Res PRIMARY KEY (ResNo),
 CONSTRAINT fk_Customer FOREIGN KEY (CustID) REFERENCES Customers(CustID),
 CONSTRAINT fk_Room FOREIGN KEY (RoomNo) REFERENCES Rooms(RoomNo));
 
-
+CREATE TABLE Payments 
+(PayID numeric(6) NOT NULL,
+Pay_Date DATE NOT NULL,
+Amount_Paid numeric (6,2) NOT NULL,
+CustID numeric(6),
+ResNo numeric(6),
+CONSTRAINT pk_Payment PRIMARY KEY (PayID),
+CONSTRAINT fk_CustPay FOREIGN KEY  (CustID) REFERENCES Customers(CustID),
+CONSTRAINT fk_Reservations FOREIGN KEY (ResNo) REFERENCES Reservations(ResNo));
 
 
 

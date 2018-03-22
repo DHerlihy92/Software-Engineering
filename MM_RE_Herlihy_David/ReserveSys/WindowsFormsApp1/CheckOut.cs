@@ -48,6 +48,8 @@ namespace WindowsFormsApp1
                 //Display Confirmation Message
                 MessageBox.Show("The selected reservation has been checked-out", "Check Out Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                Reservation.changeResStatus(Convert.ToInt16(cboSelectRes.Text.Substring(0, 4)), "CO");
+
                 //Resetting UI
                 cboSelectRes.SelectedIndex = -1;
             }
@@ -55,6 +57,26 @@ namespace WindowsFormsApp1
             {
                 //Resetting UI
                 cboSelectRes.SelectedIndex = -1;
+            }
+        }
+
+        private void frmCheckOut_Load(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+            cboSelectRes.Items.Clear();
+            ds = Reservation.getCheckOuts(ds, DateTime.Now.ToString("yyyy-MM-dd"));
+
+            if (ds.Tables["ss"].Rows.Count == 0)
+            {
+                MessageBox.Show("There are no No-Shows", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cboSelectRes.Focus();
+            }
+            else
+            {
+                for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
+                {
+                    cboSelectRes.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
+                }
             }
         }
     }
