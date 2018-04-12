@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.grpSelect = new System.Windows.Forms.GroupBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,9 +49,9 @@
             this.grpSelect.Controls.Add(this.label2);
             this.grpSelect.Controls.Add(this.dtpYearSelect);
             this.grpSelect.Location = new System.Drawing.Point(46, 36);
-            this.grpSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelect.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelect.Name = "grpSelect";
-            this.grpSelect.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelect.Padding = new System.Windows.Forms.Padding(2);
             this.grpSelect.Size = new System.Drawing.Size(232, 178);
             this.grpSelect.TabIndex = 7;
             this.grpSelect.TabStop = false;
@@ -60,7 +60,7 @@
             // btnSelect
             // 
             this.btnSelect.Location = new System.Drawing.Point(94, 111);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(56, 19);
             this.btnSelect.TabIndex = 5;
@@ -83,14 +83,14 @@
             this.dtpYearSelect.CustomFormat = "yyyy";
             this.dtpYearSelect.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpYearSelect.Location = new System.Drawing.Point(94, 58);
-            this.dtpYearSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dtpYearSelect.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
+            this.dtpYearSelect.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpYearSelect.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
             this.dtpYearSelect.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
             this.dtpYearSelect.Name = "dtpYearSelect";
             this.dtpYearSelect.ShowUpDown = true;
             this.dtpYearSelect.Size = new System.Drawing.Size(92, 20);
             this.dtpYearSelect.TabIndex = 3;
-            this.dtpYearSelect.Value = new System.DateTime(2017, 12, 25, 23, 59, 59, 0);
+            this.dtpYearSelect.Value = new System.DateTime(2018, 4, 12, 0, 0, 0, 0);
             // 
             // menuStrip1
             // 
@@ -100,7 +100,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(657, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1193, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -113,31 +113,32 @@
             // 
             // chtYear
             // 
-            chartArea2.Name = "Revenue";
-            this.chtYear.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chtYear.Legends.Add(legend2);
+            chartArea4.Name = "Revenue";
+            this.chtYear.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chtYear.Legends.Add(legend4);
             this.chtYear.Location = new System.Drawing.Point(46, 251);
             this.chtYear.Name = "chtYear";
-            series2.ChartArea = "Revenue";
-            series2.Legend = "Legend1";
-            series2.Name = "Income";
-            this.chtYear.Series.Add(series2);
+            series4.ChartArea = "Revenue";
+            series4.Legend = "Legend1";
+            series4.Name = "Income";
+            this.chtYear.Series.Add(series4);
             this.chtYear.Size = new System.Drawing.Size(572, 300);
             this.chtYear.TabIndex = 6;
             this.chtYear.Text = "chart1";
+            this.chtYear.Visible = false;
             // 
             // frmYearlyAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(657, 620);
+            this.ClientSize = new System.Drawing.Size(1193, 797);
             this.Controls.Add(this.chtYear);
             this.Controls.Add(this.grpSelect);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmYearlyAnalysis";
             this.Text = "YearlyAnalysis";
             this.Load += new System.EventHandler(this.frmYearlyAnalysis_Load);

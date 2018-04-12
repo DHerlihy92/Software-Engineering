@@ -144,6 +144,29 @@ namespace WindowsFormsApp1
 
         }
 
+        public static Boolean checkFreeRooms(String RoomNo)
+        {
+            Boolean ans = false;
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            conn.Open();
+
+            String strSQL = "SELECT * FROM Reservations WHERE RoomNo = " + RoomNo + "AND Arrival_Date >= SYSDATE";
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            if (!dr.Read())
+                ans = true;
+
+            conn.Close();
+
+            return ans;
+
+        }
+
         //Insert a new rate
         public void addRoom()
         {

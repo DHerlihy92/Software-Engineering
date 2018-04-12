@@ -291,5 +291,25 @@ namespace WindowsFormsApp1
 
         }
 
+        public static DataSet getTypeData(DataSet DS, String Year, String Type)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //connection name conn.Open();
+            String strSQL = "SELECT TO_CHAR(Dept_Date,'MM'), COUNT(ResNo) FROM Reservations rs JOIN Rooms rm ON rm.RoomNo = rs.RoomNo WHERE Dept_Date LIKE '%" + Year + "' AND rm.Room_Type" +
+                "= '" + Type + "' GROUP BY TO_CHAR(Dept_Date, 'MM') ORDER BY TO_CHAR(Dept_Date, 'MM')";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //cmd.CommandType = CommandType.Text;
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(DS, "ss");
+
+            conn.Close();
+
+            return DS;
+
+        }
+
     }
 }

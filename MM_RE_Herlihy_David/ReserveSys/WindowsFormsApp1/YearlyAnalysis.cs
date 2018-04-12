@@ -27,7 +27,16 @@ namespace WindowsFormsApp1
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            fillChart();
+            chtYear.Show();
+            //define chart
+            defineChart(dtpYearSelect.Value.Year.ToString().Substring(2, 2));
+
+            //Define the chart series
+            defineSeries();
+
+            fillChart(dtpYearSelect.Value.Year.ToString().Substring(2,2));
+            
+            
             //if (dtpYearSelect.Text.Equals(""))
             //{
             //MessageBox.Show("You did not make a selection.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -44,7 +53,7 @@ namespace WindowsFormsApp1
             parent.Show();
         }
 
-        private void fillChart()
+        private void fillChart(string year)
         {
 
             //fill chart
@@ -54,7 +63,7 @@ namespace WindowsFormsApp1
 
             //get data from database
             DataSet ds = new DataSet();
-            ds = Reservation.getMonthlyData(ds, "18");
+            ds = Reservation.getMonthlyData(ds, year);
 
             //add values in array to chart series
             int j = 0;
@@ -127,16 +136,16 @@ namespace WindowsFormsApp1
         private void frmYearlyAnalysis_Load(object sender, EventArgs e)
         {
             //define chart
-            defineChart();
+            //defineChart();
 
             //Define the chart series
-            defineSeries();
+            //defineSeries();
 
             //fill Chart
-            fillChart();
+            //fillChart();
         }
 
-        private void defineChart()
+        private void defineChart(string year)
         {
             //define chart
             chtYear.Size = new Size(1000, 500);
@@ -155,7 +164,7 @@ namespace WindowsFormsApp1
             //chtData.ChartAreas["mainArea"].AxisY.MajorGrid.Enabled = false;
 
             //chart title   
-            chtYear.Titles.Add("Monthly Revenue 2017");
+            chtYear.Titles.Add("Monthly Revenue 20" + year);
         }
     }
 }

@@ -41,11 +41,16 @@ namespace WindowsFormsApp1
 
             if (dResult == DialogResult.Yes) {
 
-                Room.closeRoom(Convert.ToInt16(cboCloseRoom.Text));
+                if (Room.checkFreeRooms(cboCloseRoom.Text))
+                {
+                    Room.closeRoom(Convert.ToInt16(cboCloseRoom.Text));
 
-                MessageBox.Show("The selected Room has been closed.", "Room closed.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Reset UI
-                cboCloseRoom.SelectedIndex = -1;
+                    MessageBox.Show("The selected Room has been closed.", "Room closed.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Reset UI
+                    cboCloseRoom.SelectedIndex = -1;
+                }
+                else
+                    MessageBox.Show("The selected Room has reservations booked. Unable to close.", "Unable To Close.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if(dResult == DialogResult.No)
 
