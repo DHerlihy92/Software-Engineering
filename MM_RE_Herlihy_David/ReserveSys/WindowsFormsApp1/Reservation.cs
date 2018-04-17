@@ -129,6 +129,7 @@ namespace WindowsFormsApp1
                 nextRes = Convert.ToInt16(dr.GetValue(0)) + 1;
 
             conn.Close();
+
             return nextRes;
 
         }
@@ -139,7 +140,7 @@ namespace WindowsFormsApp1
 
             String strSQL = "SELECT * FROM Rooms rm WHERE rm.RoomNo NOT IN (SELECT DISTINCT RoomNo FROM Reservations rs WHERE(rs.Arrival_Date BETWEEN DATE '"+ ArrivalDate +
                             "' AND DATE '" + DeptDate + "') OR(rs.Dept_Date BETWEEN DATE '" + ArrivalDate + "' AND DATE '" +DeptDate +"') OR (rs.Arrival_Date < DATE '" + ArrivalDate + 
-                            "' AND rs.Dept_Date > DATE '" + DeptDate +"')) AND rm.Room_Type = '" + Type +  "'";
+                            "' AND rs.Dept_Date > DATE '" + DeptDate +"')) AND rm.Room_Type = '" + Type +  "' AND NOT rm.Room_Status = 'C'";
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
@@ -185,8 +186,8 @@ namespace WindowsFormsApp1
             roomRate = Convert.ToDouble(dr.GetValue(0));
 
             conn.Close();
-            return roomRate;
 
+            return roomRate;
         }
 
         public static DataSet getReservations(DataSet DS, string FName, string SName)
@@ -224,7 +225,7 @@ namespace WindowsFormsApp1
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String strSQL = "SELECT * from Reservations WHERE Res_Status = 'B' AND Arrival_Date =" + Date;
+            String strSQL = "SELECT * from Reservations WHERE Res_Status = 'B' AND Arrival_Date = DATE '" + Date +"'";
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
@@ -241,7 +242,7 @@ namespace WindowsFormsApp1
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String strSQL = "SELECT * from Reservations WHERE Res_Status = 'CI' AND Dept_Date =" + Date;
+            String strSQL = "SELECT * from Reservations WHERE Res_Status = 'CI' AND Dept_Date = DATE '" + Date + "'";
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
@@ -288,7 +289,6 @@ namespace WindowsFormsApp1
             conn.Close();
 
             return DS;
-
         }
 
         public static DataSet getTypeData(DataSet DS, String Year, String Type)
@@ -310,6 +310,5 @@ namespace WindowsFormsApp1
             return DS;
 
         }
-
     }
 }

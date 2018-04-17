@@ -257,6 +257,5 @@ namespace WindowsFormsApp1
                 cboType.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
             }
         }
-
     }
 }

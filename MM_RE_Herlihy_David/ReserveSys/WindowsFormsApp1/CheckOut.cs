@@ -68,7 +68,7 @@ namespace WindowsFormsApp1
 
             if (ds.Tables["ss"].Rows.Count == 0)
             {
-                MessageBox.Show("There are no No-Shows", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("There are no Check-Outs", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboSelectRes.Focus();
             }
             else
