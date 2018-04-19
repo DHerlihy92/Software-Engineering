@@ -140,6 +140,7 @@
     <Compile Include="UpdateRoom.Designer.cs">
       <DependentUpon>UpdateRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validation.cs" />
     <Compile Include="YearlyAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>

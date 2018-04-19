@@ -30,45 +30,87 @@ namespace WindowsFormsApp1
 
         private void btnAddRate_Click(object sender, EventArgs e)
         {
-            float check;
             // validate data
-            if (txtRateType.Text.Equals(""))
+           
+            /*if (txtRateType.Text.Equals(""))
+             {
+                 MessageBox.Show("You did not enter a Type for the Rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRateType.Focus();
+                return;
+            }*/
+
+
+            if(Validation.checkEmpty(txtRateType) == false)
             {
-                MessageBox.Show("You did not enter a Type for the Rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtRateType.Focus();
                 return;
             }
-            if (float.TryParse(txtRateType.Text, out check))
+
+
+            /*if (float.TryParse(txtRateType.Text, out check))
             {
                 MessageBox.Show("A type must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtRateType.Focus();
                 return;
+            }*/
+
+            if(Validation.checkNonNumeric(txtRateType) == false)
+            {
+                txtRateType.Focus();
+                return;
             }
 
-            if (txtRateDesc.Text.Equals(""))
+            /*if (txtRateDesc.Text.Equals(""))
             {
                 MessageBox.Show("You did not select a Description for the Rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtRateDesc.Focus();
                 return;
+            }*/
+
+            if (Validation.checkEmpty(txtRateDesc) == false)
+            {
+                txtRateType.Focus();
+                return;
             }
 
-            if (float.TryParse(txtRateDesc.Text, out check))
+
+            /*if (float.TryParse(txtRateDesc.Text, out check))
             {
                 MessageBox.Show("A description must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtRateDesc.Focus();
                 return;
+            }*/
+
+            if (Validation.checkNonNumeric(txtRateDesc) == false)
+            {
+                txtRateDesc.Focus();
+                return;
             }
 
-            if (txtRateAmount.Text.Equals(""))
+
+            /*if (txtRateAmount.Text.Equals(""))
             {
                 MessageBox.Show("You did not select an Amount for the Rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtRateAmount.Focus();
                 return;
+            }*/
+
+            if (Validation.checkEmpty(txtRateAmount) == false)
+            {
+                txtRateType.Focus();
+                return;
             }
 
-            if (!float.TryParse(txtRateAmount.Text, out check))
+
+            /*if (!float.TryParse(txtRateAmount.Text, out check))
             {
                 MessageBox.Show("Please enter a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRateAmount.Focus();
+                return;
+            }*/
+
+            if (Validation.checkNumeric(txtRateAmount) == false)
+            {
                 txtRateAmount.Focus();
                 return;
             }
