@@ -34,16 +34,15 @@ namespace WindowsFormsApp1
         private void btnSelectRes_Click(object sender, EventArgs e)
         {
             //Validate Date
-            if(dtpArrDate.Text == dtpDeptDate.Text)
+            /*if(dtpArrDate.Text == dtpDeptDate.Text)
             {
                 MessageBox.Show("Arrival Date and Departure Date must not be on the same day.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpArrDate.Focus();
                 return;
-            }
+            }*/
 
-            if (cboType.Text.Equals(""))
+            if (!Validation.checkEmptyCombo(cboType))
             {
-                MessageBox.Show("You did not select a Type for the Room.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboType.Focus();
                 return;
             }
@@ -79,12 +78,12 @@ namespace WindowsFormsApp1
         private void btnSelectRoom_Click(object sender, EventArgs e)
         {
             //Validate Data
-            if (cboRoomNo.Text.Equals(""))
+            if (!Validation.checkEmptyCombo(cboRoomNo))
             {
-                MessageBox.Show("You did not select a Room.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboRoomNo.Focus();
                 return;
             }
+
 
             newRes.setRoomNO(Convert.ToUInt16(cboRoomNo.Text.Substring(0, 3)));
             newRes.setCost((Convert.ToDateTime(dtpDeptDate.Text) - Convert.ToDateTime(dtpArrDate.Text)).TotalDays * Reservation.findRate(newRes.getRoomNo()));
@@ -99,104 +98,101 @@ namespace WindowsFormsApp1
             //Validate Data
             float check;
 
-            if(float.TryParse(txtFname.Text, out check))
+            if (!Validation.checkNonNumeric(txtFname))
             {
-                MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtFname.Focus();
-                return;
-            }
-            if (float.TryParse(txtSname.Text, out check))
-            {
-                MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSname.Focus();
-                return;
-            }
-            if (float.TryParse(txtStreet.Text, out check))
-            {
-                MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtStreet.Focus();
-                return;
-            }
-            if (float.TryParse(txtTown.Text, out check))
-            {
-                MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTown.Focus();
-                return;
-            }
-            if (float.TryParse(txtCounty.Text, out check))
-            {
-                MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCounty.Focus();
-                return;
-            }
-            if (!float.TryParse(txtTelNo.Text, out check))
-            {
-                MessageBox.Show("This must be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTelNo.Focus();
-                return;
-            }
-            if (!float.TryParse(txtCardNo.Text, out check))
-            {
-                MessageBox.Show("This must be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCardNo.Focus();
-                return;
-            }
-            if (float.TryParse(txtCardName.Text, out check))
-            {
-                MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCardName.Focus();
-                return;
-            }
-            if (txtFname.Text == "")
-            {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtFname.Focus();
                 return;
             }
 
-            if (txtSname.Text == "")
+            if (!Validation.checkNonNumeric(txtSname))
             {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSname.Focus();
                 return;
             }
-            if (txtStreet.Text == "")
+
+            if (!Validation.checkNonNumeric(txtStreet))
             {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtStreet.Focus();
                 return;
             }
-            if (txtTown.Text == "")
+
+            if (!Validation.checkNonNumeric(txtTown))
             {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTown.Focus();
                 return;
             }
-            if (txtCounty.Text == "")
+
+            if (!Validation.checkNonNumeric(txtCounty))
             {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCounty.Focus();
                 return;
             }
-            if (txtTelNo.Text == "")
+
+            if (!Validation.checkNumeric(txtTelNo))
             {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTelNo.Focus();
                 return;
             }
-            if (txtCardNo.Text == "")
+
+            if (!Validation.checkNumeric(txtCardNo))
             {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCardNo.Focus();
                 return;
             }
-            if (txtCardName.Text == "")
+
+            if (!Validation.checkNonNumeric(txtCardName))
             {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCardName.Focus();
                 return;
             }
 
+            if (!Validation.checkEmptyText(txtFname))
+            {
+                txtFname.Focus();
+                return;
+            }
+
+            if (!Validation.checkEmptyText(txtSname))
+            {
+                txtSname.Focus();
+                return;
+            }
+
+            if (!Validation.checkEmptyText(txtStreet))
+            {
+                txtStreet.Focus();
+                return;
+            }
+
+            if (!Validation.checkEmptyText(txtTown))
+            {
+                txtTown.Focus();
+                return;
+            }
+
+            if (!Validation.checkEmptyText(txtCounty))
+            {
+                txtCounty.Focus();
+                return;
+            }
+
+            if (!Validation.checkEmptyText(txtTelNo))
+            {
+                txtTelNo.Focus();
+                return;
+            }
+
+            if (!Validation.checkEmptyText(txtCardNo))
+            {
+                txtCardNo.Focus();
+                return;
+            }
+
+            if (!Validation.checkEmptyText(txtCardName))
+            {
+                txtCardName.Focus();
+                return;
+            }
 
             Customer newCust = new Customer();
 
@@ -210,11 +206,13 @@ namespace WindowsFormsApp1
             newCust.setCardNo(Convert.ToInt16(txtCardNo.Text));
             newCust.setCardName(txtCardName.Text);
 
+            //Saves data to the Customer File
             newCust.addCustomer();
 
             newRes.setResNo(Reservation.nextRes());
             newRes.setCustID(newCust.getCustID());
 
+            //Saves data to the Reservation File
             newRes.addReservation();
 
             //Display Confirmation
@@ -257,5 +255,6 @@ namespace WindowsFormsApp1
                 cboType.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
             }
         }
+
     }
 }

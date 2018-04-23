@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.grpSelectRate = new System.Windows.Forms.GroupBox();
             this.cboSelectRate = new System.Windows.Forms.ComboBox();
-            this.txtRoomNo = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.grpUpdateRate.SuspendLayout();
             this.grpSelectRate.SuspendLayout();
@@ -53,15 +53,15 @@
             this.backToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(525, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(394, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // backToolStripMenuItem
             // 
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
@@ -74,11 +74,9 @@
             this.grpUpdateRate.Controls.Add(this.txtSelectedRateType);
             this.grpUpdateRate.Controls.Add(this.label2);
             this.grpUpdateRate.Controls.Add(this.label1);
-            this.grpUpdateRate.Location = new System.Drawing.Point(51, 260);
-            this.grpUpdateRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpUpdateRate.Location = new System.Drawing.Point(38, 211);
             this.grpUpdateRate.Name = "grpUpdateRate";
-            this.grpUpdateRate.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grpUpdateRate.Size = new System.Drawing.Size(417, 197);
+            this.grpUpdateRate.Size = new System.Drawing.Size(313, 160);
             this.grpUpdateRate.TabIndex = 11;
             this.grpUpdateRate.TabStop = false;
             this.grpUpdateRate.Text = "Update Rate";
@@ -86,38 +84,34 @@
             // 
             // txtUpdatedAmount
             // 
-            this.txtUpdatedAmount.Location = new System.Drawing.Point(173, 105);
-            this.txtUpdatedAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUpdatedAmount.Location = new System.Drawing.Point(130, 85);
             this.txtUpdatedAmount.MaxLength = 6;
             this.txtUpdatedAmount.Name = "txtUpdatedAmount";
-            this.txtUpdatedAmount.Size = new System.Drawing.Size(127, 22);
+            this.txtUpdatedAmount.Size = new System.Drawing.Size(96, 20);
             this.txtUpdatedAmount.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 108);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(46, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Amount:";
             // 
             // txtUpdatedDescription
             // 
-            this.txtUpdatedDescription.Location = new System.Drawing.Point(173, 65);
-            this.txtUpdatedDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUpdatedDescription.Location = new System.Drawing.Point(130, 53);
             this.txtUpdatedDescription.MaxLength = 30;
             this.txtUpdatedDescription.Name = "txtUpdatedDescription";
-            this.txtUpdatedDescription.Size = new System.Drawing.Size(127, 22);
+            this.txtUpdatedDescription.Size = new System.Drawing.Size(96, 20);
             this.txtUpdatedDescription.TabIndex = 9;
             // 
             // btnConfirmUpdate
             // 
-            this.btnConfirmUpdate.Location = new System.Drawing.Point(173, 148);
-            this.btnConfirmUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirmUpdate.Location = new System.Drawing.Point(130, 120);
             this.btnConfirmUpdate.Name = "btnConfirmUpdate";
-            this.btnConfirmUpdate.Size = new System.Drawing.Size(100, 28);
+            this.btnConfirmUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnConfirmUpdate.TabIndex = 8;
             this.btnConfirmUpdate.Text = "Confirm";
             this.btnConfirmUpdate.UseVisualStyleBackColor = true;
@@ -125,42 +119,37 @@
             // 
             // txtSelectedRateType
             // 
-            this.txtSelectedRateType.Location = new System.Drawing.Point(173, 21);
-            this.txtSelectedRateType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSelectedRateType.Location = new System.Drawing.Point(130, 17);
             this.txtSelectedRateType.Name = "txtSelectedRateType";
             this.txtSelectedRateType.ReadOnly = true;
-            this.txtSelectedRateType.Size = new System.Drawing.Size(45, 22);
+            this.txtSelectedRateType.Size = new System.Drawing.Size(35, 20);
             this.txtSelectedRateType.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 25);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(50, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 17);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Rate Type:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 68);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(46, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 17);
+            this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Description:";
             // 
             // grpSelectRate
             // 
+            this.grpSelectRate.Controls.Add(this.label4);
             this.grpSelectRate.Controls.Add(this.cboSelectRate);
-            this.grpSelectRate.Controls.Add(this.txtRoomNo);
-            this.grpSelectRate.Location = new System.Drawing.Point(51, 53);
-            this.grpSelectRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpSelectRate.Location = new System.Drawing.Point(38, 43);
             this.grpSelectRate.Name = "grpSelectRate";
-            this.grpSelectRate.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grpSelectRate.Size = new System.Drawing.Size(419, 121);
+            this.grpSelectRate.Size = new System.Drawing.Size(314, 98);
             this.grpSelectRate.TabIndex = 10;
             this.grpSelectRate.TabStop = false;
             this.grpSelectRate.Text = "Select Rate";
@@ -173,33 +162,31 @@
             "Single",
             "Double",
             "Family"});
-            this.cboSelectRate.Location = new System.Drawing.Point(173, 41);
-            this.cboSelectRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboSelectRate.Location = new System.Drawing.Point(130, 33);
             this.cboSelectRate.Name = "cboSelectRate";
-            this.cboSelectRate.Size = new System.Drawing.Size(191, 24);
+            this.cboSelectRate.Size = new System.Drawing.Size(144, 21);
             this.cboSelectRate.TabIndex = 1;
             this.cboSelectRate.SelectedIndexChanged += new System.EventHandler(this.cboSelectRate_SelectedIndexChanged);
             // 
-            // txtRoomNo
+            // label4
             // 
-            this.txtRoomNo.AutoSize = true;
-            this.txtRoomNo.Location = new System.Drawing.Point(101, 44);
-            this.txtRoomNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtRoomNo.Name = "txtRoomNo";
-            this.txtRoomNo.Size = new System.Drawing.Size(42, 17);
-            this.txtRoomNo.TabIndex = 0;
-            this.txtRoomNo.Text = "Rate:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(76, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Rate:";
             // 
             // UpdateRate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 491);
+            this.ClientSize = new System.Drawing.Size(394, 399);
             this.Controls.Add(this.grpUpdateRate);
             this.Controls.Add(this.grpSelectRate);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UpdateRate";
             this.Text = "UpdateRate";
             this.Load += new System.EventHandler(this.UpdateRate_Load);
@@ -225,9 +212,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox grpSelectRate;
         private System.Windows.Forms.ComboBox cboSelectRate;
-        private System.Windows.Forms.Label txtRoomNo;
         private System.Windows.Forms.TextBox txtUpdatedDescription;
         private System.Windows.Forms.TextBox txtUpdatedAmount;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

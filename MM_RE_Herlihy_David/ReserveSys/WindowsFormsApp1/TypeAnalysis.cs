@@ -34,7 +34,11 @@ namespace WindowsFormsApp1
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-
+            if (!Validation.checkEmptyCombo(cboRoomType))
+            {
+                cboRoomType.Focus();
+                return;
+            }
 
             chtType.Show();
             //define chart

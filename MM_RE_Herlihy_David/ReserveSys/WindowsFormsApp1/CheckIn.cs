@@ -33,12 +33,12 @@ namespace WindowsFormsApp1
         private void btnSelectRes_Click(object sender, EventArgs e)
         {
             //Validating Data
-            if (cboSelectRes.Text.Equals(""))
+            if (!Validation.checkEmptyCombo(cboSelectRes))
             {
-                MessageBox.Show("This field must be selected.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboSelectRes.Focus();
                 return;
             }
+
 
             //Display Yes/No dialog to confirm Reservation
             DialogResult dResult =MessageBox.Show("Are you sure this reservation is correct.", "Processing Check-In", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

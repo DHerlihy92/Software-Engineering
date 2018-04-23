@@ -74,7 +74,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(581, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(607, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,7 +92,7 @@
             this.dtpArrDate.MinDate = new System.DateTime(2017, 12, 10, 0, 0, 0, 0);
             this.dtpArrDate.Name = "dtpArrDate";
             this.dtpArrDate.Size = new System.Drawing.Size(151, 20);
-            this.dtpArrDate.TabIndex = 1;
+            this.dtpArrDate.TabIndex = 0;
             this.dtpArrDate.ValueChanged += new System.EventHandler(this.dtpArrDate_ValueChanged);
             // 
             // dtpDeptDate
@@ -102,7 +102,7 @@
             this.dtpDeptDate.MinDate = new System.DateTime(2017, 12, 10, 0, 0, 0, 0);
             this.dtpDeptDate.Name = "dtpDeptDate";
             this.dtpDeptDate.Size = new System.Drawing.Size(151, 20);
-            this.dtpDeptDate.TabIndex = 2;
+            this.dtpDeptDate.TabIndex = 1;
             // 
             // label1
             // 
@@ -136,7 +136,7 @@
             this.cboType.Margin = new System.Windows.Forms.Padding(2);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(120, 21);
-            this.cboType.TabIndex = 5;
+            this.cboType.TabIndex = 2;
             // 
             // label3
             // 
@@ -154,7 +154,7 @@
             this.btnSelectRes.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectRes.Name = "btnSelectRes";
             this.btnSelectRes.Size = new System.Drawing.Size(56, 19);
-            this.btnSelectRes.TabIndex = 7;
+            this.btnSelectRes.TabIndex = 3;
             this.btnSelectRes.Text = "Select";
             this.btnSelectRes.UseVisualStyleBackColor = true;
             this.btnSelectRes.Click += new System.EventHandler(this.btnSelectRes_Click);
@@ -198,7 +198,7 @@
             this.cboRoomNo.Margin = new System.Windows.Forms.Padding(2);
             this.cboRoomNo.Name = "cboRoomNo";
             this.cboRoomNo.Size = new System.Drawing.Size(92, 21);
-            this.cboRoomNo.TabIndex = 9;
+            this.cboRoomNo.TabIndex = 4;
             // 
             // grpSelectRoom
             // 
@@ -221,7 +221,7 @@
             this.btnSelectRoom.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectRoom.Name = "btnSelectRoom";
             this.btnSelectRoom.Size = new System.Drawing.Size(56, 19);
-            this.btnSelectRoom.TabIndex = 11;
+            this.btnSelectRoom.TabIndex = 5;
             this.btnSelectRoom.Text = "Select";
             this.btnSelectRoom.UseVisualStyleBackColor = true;
             this.btnSelectRoom.Click += new System.EventHandler(this.btnSelectRoom_Click);
@@ -242,7 +242,7 @@
             this.txtFname.Margin = new System.Windows.Forms.Padding(2);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(76, 20);
-            this.txtFname.TabIndex = 13;
+            this.txtFname.TabIndex = 6;
             // 
             // label6
             // 
@@ -260,7 +260,7 @@
             this.txtSname.Margin = new System.Windows.Forms.Padding(2);
             this.txtSname.Name = "txtSname";
             this.txtSname.Size = new System.Drawing.Size(76, 20);
-            this.txtSname.TabIndex = 15;
+            this.txtSname.TabIndex = 7;
             // 
             // txtStreet
             // 
@@ -268,7 +268,7 @@
             this.txtStreet.Margin = new System.Windows.Forms.Padding(2);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(76, 20);
-            this.txtStreet.TabIndex = 16;
+            this.txtStreet.TabIndex = 8;
             // 
             // label7
             // 
@@ -296,7 +296,7 @@
             this.txtTown.Margin = new System.Windows.Forms.Padding(2);
             this.txtTown.Name = "txtTown";
             this.txtTown.Size = new System.Drawing.Size(76, 20);
-            this.txtTown.TabIndex = 18;
+            this.txtTown.TabIndex = 9;
             // 
             // label9
             // 
@@ -314,7 +314,7 @@
             this.txtCounty.Margin = new System.Windows.Forms.Padding(2);
             this.txtCounty.Name = "txtCounty";
             this.txtCounty.Size = new System.Drawing.Size(76, 20);
-            this.txtCounty.TabIndex = 20;
+            this.txtCounty.TabIndex = 10;
             // 
             // label10
             // 
@@ -332,7 +332,7 @@
             this.txtTelNo.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelNo.Name = "txtTelNo";
             this.txtTelNo.Size = new System.Drawing.Size(76, 20);
-            this.txtTelNo.TabIndex = 22;
+            this.txtTelNo.TabIndex = 11;
             // 
             // label11
             // 
@@ -350,7 +350,7 @@
             this.txtCardNo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCardNo.Name = "txtCardNo";
             this.txtCardNo.Size = new System.Drawing.Size(76, 20);
-            this.txtCardNo.TabIndex = 24;
+            this.txtCardNo.TabIndex = 12;
             // 
             // label12
             // 
@@ -368,7 +368,7 @@
             this.txtCardName.Margin = new System.Windows.Forms.Padding(2);
             this.txtCardName.Name = "txtCardName";
             this.txtCardName.Size = new System.Drawing.Size(76, 20);
-            this.txtCardName.TabIndex = 26;
+            this.txtCardName.TabIndex = 13;
             // 
             // grpCustomer
             // 
@@ -393,7 +393,7 @@
             this.grpCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.grpCustomer.Name = "grpCustomer";
             this.grpCustomer.Padding = new System.Windows.Forms.Padding(2);
-            this.grpCustomer.Size = new System.Drawing.Size(217, 249);
+            this.grpCustomer.Size = new System.Drawing.Size(217, 252);
             this.grpCustomer.TabIndex = 28;
             this.grpCustomer.TabStop = false;
             this.grpCustomer.Text = "Enter Customer\'s Details";
@@ -401,11 +401,11 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(112, 219);
+            this.btnConfirm.Location = new System.Drawing.Point(87, 214);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(56, 19);
-            this.btnConfirm.TabIndex = 28;
+            this.btnConfirm.TabIndex = 14;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -414,7 +414,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 397);
+            this.ClientSize = new System.Drawing.Size(607, 428);
             this.Controls.Add(this.grpCustomer);
             this.Controls.Add(this.grpSelectRoom);
             this.Controls.Add(this.grpSelectRes);

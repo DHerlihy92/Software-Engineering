@@ -33,9 +33,8 @@ namespace WindowsFormsApp1
         private void btnSelectRes_Click(object sender, EventArgs e)
         {
             //Validating Data
-            if (cboSelectRes.Text.Equals(""))
+            if (!Validation.checkEmptyCombo(cboSelectRes))
             {
-                MessageBox.Show("This field must be selected.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboSelectRes.Focus();
                 return;
             }
@@ -51,6 +50,7 @@ namespace WindowsFormsApp1
                 newPayment.setPayDate(DateTime.Now.ToString("yyyy-MM-dd"));
                 newPayment.setResNo(Convert.ToInt16(cboSelectRes.Text.Substring(0, 4)));
 
+                //Saves data to the Payments File
                 newPayment.addPayment();
 
                 //Display Confirmation Message
@@ -64,6 +64,7 @@ namespace WindowsFormsApp1
             }
             else if(dResult == DialogResult.No)
             {
+                MessageBox.Show("No changes have been made.", "No changes.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Resetting UI
                 cboSelectRes.SelectedIndex = -1;
             }

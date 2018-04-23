@@ -47,26 +47,25 @@ namespace WindowsFormsApp1
         private void btnConfirmUpdate_Click(object sender, EventArgs e)
         {
             float check;
-            if (cboSelectType.Text.Equals(""))
-            {
-                MessageBox.Show("You did not select a Room.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cboSelectType.Focus();
-                return;
-            }
 
-            if (txtDescription.Text.Equals(""))
+            if (!Validation.checkEmptyText(txtDescription))
             {
-                MessageBox.Show("You did not enter a Description.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDescription.Focus();
                 return;
             }
 
-            if (float.TryParse(txtDescription.Text, out check))
+            if (!Validation.checkNonNumeric(txtDescription))
             {
-                MessageBox.Show("A Description must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDescription.Focus();
                 return;
             }
+
+            if (!Validation.checkEmptyCombo(cboSelectRoom))
+            {
+                cboSelectRoom.Focus();
+                return;
+            }
+
 
             Room updRoom = new Room();
 

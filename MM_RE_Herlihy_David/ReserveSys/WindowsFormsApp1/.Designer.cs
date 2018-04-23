@@ -91,7 +91,7 @@
             this.btnAddRate.Location = new System.Drawing.Point(104, 186);
             this.btnAddRate.Name = "btnAddRate";
             this.btnAddRate.Size = new System.Drawing.Size(75, 23);
-            this.btnAddRate.TabIndex = 6;
+            this.btnAddRate.TabIndex = 3;
             this.btnAddRate.Text = "Confirm";
             this.btnAddRate.UseVisualStyleBackColor = true;
             this.btnAddRate.Click += new System.EventHandler(this.btnAddRate_Click);

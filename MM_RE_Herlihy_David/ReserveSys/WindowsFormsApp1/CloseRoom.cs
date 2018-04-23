@@ -29,15 +29,15 @@ namespace WindowsFormsApp1
         private void btnCloseRoom_Click(object sender, EventArgs e)
         {
             // validate data
-            if (cboCloseRoom.Text.Equals(""))
+            if (!Validation.checkEmptyCombo(cboCloseRoom))
             {
-                MessageBox.Show("You did not select a Room.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboCloseRoom.Focus();
                 return;
             }
 
+
             //Display confirmation message
-            DialogResult dResult=MessageBox.Show("Are you sure you would like to close this room?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dResult = MessageBox.Show("Are you sure you would like to close this room?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dResult == DialogResult.Yes) {
 

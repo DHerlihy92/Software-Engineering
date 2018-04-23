@@ -12,13 +12,25 @@ namespace WindowsFormsApp1
 {
     class Validation
     {
-        public static Boolean checkEmpty(TextBox txt)
+        public static Boolean checkEmptyText(TextBox txt)
         {
             Boolean check = true;
 
             if (txt.Text.Equals(""))
             {
-                MessageBox.Show("You did not enter a Type for the Rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("You did not fill in this item.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                check = false;
+            }
+            return check;
+        }
+
+        public static Boolean checkEmptyCombo(ComboBox cbo)
+        {
+            Boolean check = true;
+
+            if (cbo.Text.Equals(""))
+            {
+                MessageBox.Show("You did not select an item.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 check = false;
             }
             return check;

@@ -31,85 +31,37 @@ namespace WindowsFormsApp1
         private void btnAddRate_Click(object sender, EventArgs e)
         {
             // validate data
-           
-            /*if (txtRateType.Text.Equals(""))
-             {
-                 MessageBox.Show("You did not enter a Type for the Rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRateType.Focus();
-                return;
-            }*/
-
-
-            if(Validation.checkEmpty(txtRateType) == false)
+            if(!Validation.checkEmptyText(txtRateType))
             {
                 txtRateType.Focus();
                 return;
             }
 
-
-            /*if (float.TryParse(txtRateType.Text, out check))
-            {
-                MessageBox.Show("A type must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRateType.Focus();
-                return;
-            }*/
-
-            if(Validation.checkNonNumeric(txtRateType) == false)
+            if(!Validation.checkNonNumeric(txtRateType))
             {
                 txtRateType.Focus();
                 return;
             }
 
-            /*if (txtRateDesc.Text.Equals(""))
-            {
-                MessageBox.Show("You did not select a Description for the Rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRateDesc.Focus();
-                return;
-            }*/
-
-            if (Validation.checkEmpty(txtRateDesc) == false)
+            if (!Validation.checkEmptyText(txtRateDesc))
             {
                 txtRateType.Focus();
                 return;
             }
 
-
-            /*if (float.TryParse(txtRateDesc.Text, out check))
-            {
-                MessageBox.Show("A description must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRateDesc.Focus();
-                return;
-            }*/
-
-            if (Validation.checkNonNumeric(txtRateDesc) == false)
+            if (!Validation.checkNonNumeric(txtRateDesc))
             {
                 txtRateDesc.Focus();
                 return;
             }
 
-
-            /*if (txtRateAmount.Text.Equals(""))
-            {
-                MessageBox.Show("You did not select an Amount for the Rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRateAmount.Focus();
-                return;
-            }*/
-
-            if (Validation.checkEmpty(txtRateAmount) == false)
+            if (!Validation.checkEmptyText(txtRateAmount))
             {
                 txtRateType.Focus();
                 return;
             }
 
-
-            /*if (!float.TryParse(txtRateAmount.Text, out check))
-            {
-                MessageBox.Show("Please enter a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRateAmount.Focus();
-                return;
-            }*/
-
-            if (Validation.checkNumeric(txtRateAmount) == false)
+            if (!Validation.checkNumeric(txtRateAmount))
             {
                 txtRateAmount.Focus();
                 return;
@@ -131,19 +83,19 @@ namespace WindowsFormsApp1
                 txtRateAmount.Text = "";
                 return;
             }
-            //Create rate object
+            
             Rates newRate = new Rates();
 
             newRate.setRoom_Type(txtRateType.Text);
             newRate.setDescription(txtRateDesc.Text);
             newRate.setRate(Convert.ToDecimal(txtRateAmount.Text));
 
-            //Insert into rates
+            //Saves details in the Rates File
 
             newRate.addRate();
 
             //Display confirmation message
-            MessageBox.Show("You have added a new rate.", "Rate Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("You have added a new rate for '" + txtRateDesc.Text +"'.", "Rate Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //Reset UI
             txtRateType.Text = "";

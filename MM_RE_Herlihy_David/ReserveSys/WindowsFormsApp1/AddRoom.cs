@@ -27,56 +27,51 @@ namespace WindowsFormsApp1
         private void btnAddRooms_Click(object sender, EventArgs e)
         {
             // validate data
-            float check;
-            if (cboRoomType.Text.Equals(""))
+            if (!Validation.checkEmptyCombo(cboRoomType))
             {
-                MessageBox.Show("You did not select a Room Type.","Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboRoomType.Focus();
                 return;
             }
 
-            if (txtRoomNo.Text.Equals(""))
+            if (!Validation.checkEmptyText(txtRoomNo))
             {
-                MessageBox.Show("You did not enter a Room Number.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtRoomNo.Focus();
                 return;
             }
 
-            if (!float.TryParse(txtRoomNo.Text, out check))
+            if (!Validation.checkNumeric(txtRoomNo))
             {
-                MessageBox.Show("A room number must be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRoomNo.Focus();
+                return;
+            }
+
+            if (!Validation.checkNonNumeric(txtDescription))
+            {
                 txtDescription.Focus();
                 return;
             }
 
-            if (float.TryParse(txtDescription.Text, out check))
+            if (!Validation.checkEmptyText(txtDescription))
             {
-                MessageBox.Show("A description must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDescription.Focus();
                 return;
             }
 
-            if (txtDescription.Text.Equals(""))
-            {
-                MessageBox.Show("You did not enter a Description.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtDescription.Focus();
-                return;
-            }
 
             Room nextRoom = new Room();
-
             nextRoom.setRoomNo(Convert.ToInt16(txtRoomNo.Text));
             nextRoom.setType(cboRoomType.Text.Substring(0, 2));
             nextRoom.setDescription(txtDescription.Text);
             
+            //Save data in Rooms File
             nextRoom.addRoom();
 
 
 
-            //Save data in Rooms File
+            
 
             //Display confirmation message
-            MessageBox.Show("You successfully added a room.", "Room Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("You successfully added Room " + txtRoomNo.Text, "Room Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //Reset UI
             cboRoomType.SelectedIndex = -1;
@@ -105,8 +100,5 @@ namespace WindowsFormsApp1
             this.Close();
             parent.Show();
         }
-
-
-
     }
 }

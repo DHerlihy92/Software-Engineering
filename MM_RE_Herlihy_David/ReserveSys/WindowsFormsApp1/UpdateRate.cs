@@ -62,31 +62,27 @@ namespace WindowsFormsApp1
 
         private void btnConfirmUpdate_Click(object sender, EventArgs e)
         {
-            float check;
-            if (txtUpdatedAmount.Text.Equals(""))
+            //Validate Data
+            if (!Validation.checkEmptyText(txtUpdatedAmount))
             {
-                MessageBox.Show("You did not enter an Amount.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtUpdatedAmount.Focus();
                 return;
             }
 
-            if (!float.TryParse(txtUpdatedAmount.Text, out check))
+            if (!Validation.checkNumeric(txtUpdatedAmount))
             {
-                MessageBox.Show("Please enter a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtUpdatedAmount.Focus();
                 return;
             }
 
-            if (txtUpdatedDescription.Text.Equals(""))
+            if (!Validation.checkEmptyText(txtUpdatedDescription))
             {
-                MessageBox.Show("You did not enter a Description.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtUpdatedDescription.Focus();
                 return;
             }
 
-            if (float.TryParse(txtUpdatedDescription.Text, out check))
+            if (!Validation.checkNonNumeric(txtUpdatedDescription))
             {
-                MessageBox.Show("A Description must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtUpdatedDescription.Focus();
                 return;
             }
@@ -127,7 +123,6 @@ namespace WindowsFormsApp1
 
         private void cboSelectRate_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if(cboSelectRate.SelectedIndex == -1)
             {
                 return;

@@ -60,14 +60,14 @@
             this.cboRoomType.Location = new System.Drawing.Point(187, 92);
             this.cboRoomType.Name = "cboRoomType";
             this.cboRoomType.Size = new System.Drawing.Size(112, 21);
-            this.cboRoomType.TabIndex = 3;
+            this.cboRoomType.TabIndex = 1;
             // 
             // btnAddRooms
             // 
             this.btnAddRooms.Location = new System.Drawing.Point(187, 170);
             this.btnAddRooms.Name = "btnAddRooms";
             this.btnAddRooms.Size = new System.Drawing.Size(75, 23);
-            this.btnAddRooms.TabIndex = 4;
+            this.btnAddRooms.TabIndex = 3;
             this.btnAddRooms.Text = "Confirm";
             this.btnAddRooms.UseVisualStyleBackColor = true;
             this.btnAddRooms.Click += new System.EventHandler(this.btnAddRooms_Click);
@@ -78,7 +78,7 @@
             this.txtRoomNo.Name = "txtRoomNo";
             this.txtRoomNo.ReadOnly = true;
             this.txtRoomNo.Size = new System.Drawing.Size(112, 20);
-            this.txtRoomNo.TabIndex = 7;
+            this.txtRoomNo.TabIndex = 0;
             // 
             // label1
             // 
@@ -122,7 +122,7 @@
             this.txtDescription.Location = new System.Drawing.Point(187, 131);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(112, 20);
-            this.txtDescription.TabIndex = 10;
+            this.txtDescription.TabIndex = 2;
             // 
             // frmAddRoom
             // 

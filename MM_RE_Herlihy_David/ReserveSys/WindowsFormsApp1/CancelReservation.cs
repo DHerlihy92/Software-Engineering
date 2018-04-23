@@ -34,32 +34,26 @@ namespace WindowsFormsApp1
         private void btnSelectCust_Click(object sender, EventArgs e)
         {
             //Validate Data
-            float check;
-
-            if(float.TryParse(txtFname.Text, out check))
+            if (!Validation.checkNonNumeric(txtFname))
             {
-                MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtFname.Focus();
                 return;
             }
 
-            if (float.TryParse(txtSname.Text, out check))
+            if (!Validation.checkNonNumeric(txtSname))
             {
-                MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSname.Focus();
                 return;
             }
 
-            if(txtFname.Text == "")
+            if (!Validation.checkEmptyText(txtFname))
             {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtFname.Focus();
                 return;
             }
 
-            if (txtSname.Text == "")
+            if (!Validation.checkEmptyText(txtSname))
             {
-                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSname.Focus();
                 return;
             }
@@ -89,9 +83,8 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (cboReservation.Text.Equals(""))
+            if (!Validation.checkEmptyCombo(cboReservation))
             {
-                MessageBox.Show("This field must be selected.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboReservation.Focus();
                 return;
             }
@@ -119,6 +112,8 @@ namespace WindowsFormsApp1
 
                 else if(dResult == DialogResult.No)
                 {
+                    MessageBox.Show("You did not cancel any Reservations.", "No Changes Made", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     //Resetting UI
                     txtFname.Text = "";
                     txtSname.Text = "";
