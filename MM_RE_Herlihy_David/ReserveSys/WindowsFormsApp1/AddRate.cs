@@ -31,40 +31,22 @@ namespace WindowsFormsApp1
         {
             // validate data
             if(!Validation.checkEmptyText(txtRateType))
-            {
-                txtRateType.Focus();
                 return;
-            }
 
             if(!Validation.checkNonNumeric(txtRateType))
-            {
-                txtRateType.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtRateDesc))
-            {
-                txtRateType.Focus();
                 return;
-            }
 
             if (!Validation.checkNonNumeric(txtRateDesc))
-            {
-                txtRateDesc.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtRateAmount))
-            {
-                txtRateType.Focus();
                 return;
-            }
 
             if (!Validation.checkNumeric(txtRateAmount))
-            {
-                txtRateAmount.Focus();
                 return;
-            }
 
             if (Rates.rateExists(txtRateType.Text))
             {

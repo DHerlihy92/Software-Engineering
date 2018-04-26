@@ -35,28 +35,18 @@ namespace WindowsFormsApp1
         {
             //Validate Data
             if (!Validation.checkNonNumeric(txtFname))
-            {
-                txtFname.Focus();
                 return;
-            }
 
             if (!Validation.checkNonNumeric(txtSname))
-            {
-                txtSname.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtFname))
-            {
-                txtFname.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtSname))
-            {
-                txtSname.Focus();
                 return;
-            }
+
+
 
             DataSet ds = new DataSet();
             cboReservation.Items.Clear();
@@ -70,6 +60,7 @@ namespace WindowsFormsApp1
 
             else
             {
+
                 for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
                 {
                     cboReservation.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
@@ -77,6 +68,7 @@ namespace WindowsFormsApp1
 
                 //Showing next step
                 grpSelectCust.Hide();
+                Size = new Size(333, 400);
                 grpSelectRes.Show();
             }
         }
@@ -84,10 +76,7 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             if (!Validation.checkEmptyCombo(cboReservation))
-            {
-                cboReservation.Focus();
                 return;
-            }
 
             if (Convert.ToDateTime(cboReservation.Text.Substring(5,10)).DayOfYear > (DateTime.Now.DayOfYear+1))
             {
@@ -120,6 +109,7 @@ namespace WindowsFormsApp1
                     cboReservation.SelectedIndex = -1;
 
                     grpSelectRes.Hide();
+                    Size = new Size(333, 250);
                     grpSelectCust.Show();
                 }
             }

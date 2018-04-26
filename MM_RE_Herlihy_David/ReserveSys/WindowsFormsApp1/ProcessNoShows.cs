@@ -34,10 +34,7 @@ namespace WindowsFormsApp1
         {
             //Validating Data
             if (!Validation.checkEmptyCombo(cboSelectRes))
-            {
-                cboSelectRes.Focus();
                 return;
-            }
 
             //Display Yes/No dialog to confirm Reservation
             DialogResult dResult = MessageBox.Show("Are you sure this reservation is correct?", "Processing No-Show", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

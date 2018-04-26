@@ -30,6 +30,7 @@
         {
             this.cboSelectRoom = new System.Windows.Forms.ComboBox();
             this.grpSelectRoom = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.cboSelectType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
             this.grpSelectRoom.SuspendLayout();
             this.grpUpdateRoom.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -56,7 +56,7 @@
             "103",
             "104",
             "105"});
-            this.cboSelectRoom.Location = new System.Drawing.Point(130, 33);
+            this.cboSelectRoom.Location = new System.Drawing.Point(130, 45);
             this.cboSelectRoom.Name = "cboSelectRoom";
             this.cboSelectRoom.Size = new System.Drawing.Size(121, 21);
             this.cboSelectRoom.TabIndex = 1;
@@ -66,16 +66,26 @@
             // 
             this.grpSelectRoom.Controls.Add(this.label4);
             this.grpSelectRoom.Controls.Add(this.cboSelectRoom);
-            this.grpSelectRoom.Location = new System.Drawing.Point(69, 67);
+            this.grpSelectRoom.Location = new System.Drawing.Point(33, 46);
             this.grpSelectRoom.Name = "grpSelectRoom";
-            this.grpSelectRoom.Size = new System.Drawing.Size(314, 134);
+            this.grpSelectRoom.Size = new System.Drawing.Size(314, 111);
             this.grpSelectRoom.TabIndex = 3;
             this.grpSelectRoom.TabStop = false;
             this.grpSelectRoom.Text = "Select Room";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(46, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Room Number:";
+            // 
             // cboSelectType
             // 
             this.cboSelectType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSelectType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboSelectType.FormattingEnabled = true;
             this.cboSelectType.Items.AddRange(new object[] {
             "Single Room",
@@ -131,7 +141,7 @@
             this.grpUpdateRoom.Controls.Add(this.label2);
             this.grpUpdateRoom.Controls.Add(this.label1);
             this.grpUpdateRoom.Controls.Add(this.cboSelectType);
-            this.grpUpdateRoom.Location = new System.Drawing.Point(69, 235);
+            this.grpUpdateRoom.Location = new System.Drawing.Point(34, 198);
             this.grpUpdateRoom.Name = "grpUpdateRoom";
             this.grpUpdateRoom.Size = new System.Drawing.Size(313, 173);
             this.grpUpdateRoom.TabIndex = 9;
@@ -151,7 +161,7 @@
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(130, 87);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescription.MaxLength = 30;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(154, 20);
@@ -165,7 +175,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(452, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(384, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -176,20 +186,11 @@
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Room Number:";
-            // 
             // frmUpdateRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 445);
+            this.ClientSize = new System.Drawing.Size(384, 186);
             this.Controls.Add(this.grpUpdateRoom);
             this.Controls.Add(this.grpSelectRoom);
             this.Controls.Add(this.menuStrip1);

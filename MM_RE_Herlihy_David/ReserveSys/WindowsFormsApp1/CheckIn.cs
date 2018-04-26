@@ -34,10 +34,7 @@ namespace WindowsFormsApp1
         {
             //Validating Data
             if (!Validation.checkEmptyCombo(cboSelectRes))
-            {
-                cboSelectRes.Focus();
                 return;
-            }
 
 
             //Display Yes/No dialog to confirm Reservation

@@ -54,7 +54,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(394, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(384, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,7 +74,7 @@
             this.grpUpdateRate.Controls.Add(this.txtSelectedRateType);
             this.grpUpdateRate.Controls.Add(this.label2);
             this.grpUpdateRate.Controls.Add(this.label1);
-            this.grpUpdateRate.Location = new System.Drawing.Point(38, 211);
+            this.grpUpdateRate.Location = new System.Drawing.Point(36, 203);
             this.grpUpdateRate.Name = "grpUpdateRate";
             this.grpUpdateRate.Size = new System.Drawing.Size(313, 160);
             this.grpUpdateRate.TabIndex = 11;
@@ -147,7 +147,7 @@
             // 
             this.grpSelectRate.Controls.Add(this.label4);
             this.grpSelectRate.Controls.Add(this.cboSelectRate);
-            this.grpSelectRate.Location = new System.Drawing.Point(38, 43);
+            this.grpSelectRate.Location = new System.Drawing.Point(35, 57);
             this.grpSelectRate.Name = "grpSelectRate";
             this.grpSelectRate.Size = new System.Drawing.Size(314, 98);
             this.grpSelectRate.TabIndex = 10;
@@ -181,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 399);
+            this.ClientSize = new System.Drawing.Size(384, 191);
             this.Controls.Add(this.grpUpdateRate);
             this.Controls.Add(this.grpSelectRate);
             this.Controls.Add(this.menuStrip1);

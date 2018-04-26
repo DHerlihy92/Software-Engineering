@@ -30,11 +30,7 @@ namespace WindowsFormsApp1
         {
             // validate data
             if (!Validation.checkEmptyCombo(cboCloseRoom))
-            {
-                cboCloseRoom.Focus();
                 return;
-            }
-
 
             //Display confirmation message
             DialogResult dResult = MessageBox.Show("Are you sure you would like to close this room?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

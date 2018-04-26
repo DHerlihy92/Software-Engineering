@@ -60,6 +60,7 @@
             // cboSelectRes
             // 
             this.cboSelectRes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSelectRes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboSelectRes.FormattingEnabled = true;
             this.cboSelectRes.Items.AddRange(new object[] {
             "15. John Smith, 112",

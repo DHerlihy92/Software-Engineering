@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
             this.cboRoomType = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1198, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(302, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,13 +67,14 @@
             // cboRoomType
             // 
             this.cboRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRoomType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboRoomType.FormattingEnabled = true;
             this.cboRoomType.Items.AddRange(new object[] {
             "Single",
             "Double",
             "Family"});
             this.cboRoomType.Location = new System.Drawing.Point(94, 44);
-            this.cboRoomType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboRoomType.Margin = new System.Windows.Forms.Padding(2);
             this.cboRoomType.Name = "cboRoomType";
             this.cboRoomType.Size = new System.Drawing.Size(92, 21);
             this.cboRoomType.TabIndex = 1;
@@ -93,7 +94,7 @@
             this.dtpYearSelect.CustomFormat = "yyyy";
             this.dtpYearSelect.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpYearSelect.Location = new System.Drawing.Point(94, 79);
-            this.dtpYearSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpYearSelect.Margin = new System.Windows.Forms.Padding(2);
             this.dtpYearSelect.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
             this.dtpYearSelect.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
             this.dtpYearSelect.Name = "dtpYearSelect";
@@ -115,7 +116,7 @@
             // btnSelect
             // 
             this.btnSelect.Location = new System.Drawing.Point(94, 111);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(56, 19);
             this.btnSelect.TabIndex = 5;
@@ -131,9 +132,9 @@
             this.grpSelect.Controls.Add(this.label1);
             this.grpSelect.Controls.Add(this.cboRoomType);
             this.grpSelect.Location = new System.Drawing.Point(34, 46);
-            this.grpSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelect.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelect.Name = "grpSelect";
-            this.grpSelect.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelect.Padding = new System.Windows.Forms.Padding(2);
             this.grpSelect.Size = new System.Drawing.Size(232, 178);
             this.grpSelect.TabIndex = 6;
             this.grpSelect.TabStop = false;
@@ -141,17 +142,17 @@
             // 
             // chtType
             // 
-            chartArea4.Name = "Revenue";
-            this.chtType.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chtType.Legends.Add(legend4);
-            this.chtType.Location = new System.Drawing.Point(74, 246);
+            chartArea1.Name = "Revenue";
+            this.chtType.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chtType.Legends.Add(legend1);
+            this.chtType.Location = new System.Drawing.Point(34, 248);
             this.chtType.Name = "chtType";
-            series4.ChartArea = "Revenue";
-            series4.Legend = "Legend1";
-            series4.Name = "Income";
-            this.chtType.Series.Add(series4);
-            this.chtType.Size = new System.Drawing.Size(572, 300);
+            series1.ChartArea = "Revenue";
+            series1.Legend = "Legend1";
+            series1.Name = "Income";
+            this.chtType.Series.Add(series1);
+            this.chtType.Size = new System.Drawing.Size(146, 63);
             this.chtType.TabIndex = 7;
             this.chtType.Text = "chart1";
             this.chtType.Visible = false;
@@ -161,13 +162,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1198, 840);
+            this.ClientSize = new System.Drawing.Size(302, 313);
             this.Controls.Add(this.chtType);
             this.Controls.Add(this.grpSelect);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(668, 644);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmTypeAnalysis";
             this.Text = "TypeAnalysis";
             this.Load += new System.EventHandler(this.frmTypeAnalysis_Load);

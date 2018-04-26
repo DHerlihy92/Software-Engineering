@@ -74,7 +74,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(607, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(338, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -127,6 +127,7 @@
             // cboType
             // 
             this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboType.FormattingEnabled = true;
             this.cboType.Items.AddRange(new object[] {
             "Single",
@@ -168,7 +169,7 @@
             this.grpSelectRes.Controls.Add(this.label1);
             this.grpSelectRes.Controls.Add(this.dtpDeptDate);
             this.grpSelectRes.Controls.Add(this.dtpArrDate);
-            this.grpSelectRes.Location = new System.Drawing.Point(25, 57);
+            this.grpSelectRes.Location = new System.Drawing.Point(30, 62);
             this.grpSelectRes.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelectRes.Name = "grpSelectRes";
             this.grpSelectRes.Padding = new System.Windows.Forms.Padding(2);
@@ -180,7 +181,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 20);
+            this.label4.Location = new System.Drawing.Point(26, 48);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
@@ -190,11 +191,12 @@
             // cboRoomNo
             // 
             this.cboRoomNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRoomNo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboRoomNo.FormattingEnabled = true;
             this.cboRoomNo.Items.AddRange(new object[] {
             "101",
             "102"});
-            this.cboRoomNo.Location = new System.Drawing.Point(107, 17);
+            this.cboRoomNo.Location = new System.Drawing.Point(107, 45);
             this.cboRoomNo.Margin = new System.Windows.Forms.Padding(2);
             this.cboRoomNo.Name = "cboRoomNo";
             this.cboRoomNo.Size = new System.Drawing.Size(92, 21);
@@ -205,11 +207,11 @@
             this.grpSelectRoom.Controls.Add(this.btnSelectRoom);
             this.grpSelectRoom.Controls.Add(this.label4);
             this.grpSelectRoom.Controls.Add(this.cboRoomNo);
-            this.grpSelectRoom.Location = new System.Drawing.Point(25, 271);
+            this.grpSelectRoom.Location = new System.Drawing.Point(30, 295);
             this.grpSelectRoom.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelectRoom.Name = "grpSelectRoom";
             this.grpSelectRoom.Padding = new System.Windows.Forms.Padding(2);
-            this.grpSelectRoom.Size = new System.Drawing.Size(274, 99);
+            this.grpSelectRoom.Size = new System.Drawing.Size(274, 120);
             this.grpSelectRoom.TabIndex = 11;
             this.grpSelectRoom.TabStop = false;
             this.grpSelectRoom.Text = "Select Room";
@@ -217,7 +219,7 @@
             // 
             // btnSelectRoom
             // 
-            this.btnSelectRoom.Location = new System.Drawing.Point(107, 58);
+            this.btnSelectRoom.Location = new System.Drawing.Point(107, 86);
             this.btnSelectRoom.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectRoom.Name = "btnSelectRoom";
             this.btnSelectRoom.Size = new System.Drawing.Size(56, 19);
@@ -389,7 +391,7 @@
             this.grpCustomer.Controls.Add(this.label6);
             this.grpCustomer.Controls.Add(this.txtFname);
             this.grpCustomer.Controls.Add(this.label5);
-            this.grpCustomer.Location = new System.Drawing.Point(335, 57);
+            this.grpCustomer.Location = new System.Drawing.Point(341, 62);
             this.grpCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.grpCustomer.Name = "grpCustomer";
             this.grpCustomer.Padding = new System.Windows.Forms.Padding(2);
@@ -414,7 +416,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 428);
+            this.ClientSize = new System.Drawing.Size(338, 295);
             this.Controls.Add(this.grpCustomer);
             this.Controls.Add(this.grpSelectRoom);
             this.Controls.Add(this.grpSelectRes);

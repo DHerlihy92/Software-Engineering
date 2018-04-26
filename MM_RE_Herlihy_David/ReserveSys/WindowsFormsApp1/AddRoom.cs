@@ -28,34 +28,13 @@ namespace WindowsFormsApp1
         {
             // validate data
             if (!Validation.checkEmptyCombo(cboRoomType))
-            {
-                cboRoomType.Focus();
                 return;
-            }
-
-            if (!Validation.checkEmptyText(txtRoomNo))
-            {
-                txtRoomNo.Focus();
-                return;
-            }
-
-            if (!Validation.checkNumeric(txtRoomNo))
-            {
-                txtRoomNo.Focus();
-                return;
-            }
 
             if (!Validation.checkNonNumeric(txtDescription))
-            {
-                txtDescription.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtDescription))
-            {
-                txtDescription.Focus();
                 return;
-            }
 
             //Sets the Room Details from the form
             Room nextRoom = new Room();
@@ -97,5 +76,6 @@ namespace WindowsFormsApp1
             this.Close();
             parent.Show();
         }
+
     }
 }

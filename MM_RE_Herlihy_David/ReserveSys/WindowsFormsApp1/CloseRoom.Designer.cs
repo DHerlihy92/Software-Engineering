@@ -41,6 +41,7 @@
             // cboCloseRoom
             // 
             this.cboCloseRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCloseRoom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboCloseRoom.FormattingEnabled = true;
             this.cboCloseRoom.Items.AddRange(new object[] {
             "101",
@@ -48,28 +49,25 @@
             "103",
             "104",
             "105"});
-            this.cboCloseRoom.Location = new System.Drawing.Point(103, 72);
-            this.cboCloseRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.cboCloseRoom.Location = new System.Drawing.Point(77, 58);
             this.cboCloseRoom.Name = "cboCloseRoom";
-            this.cboCloseRoom.Size = new System.Drawing.Size(140, 24);
+            this.cboCloseRoom.Size = new System.Drawing.Size(106, 21);
             this.cboCloseRoom.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 76);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(34, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Room:";
             // 
             // btnCloseRoom
             // 
-            this.btnCloseRoom.Location = new System.Drawing.Point(103, 122);
-            this.btnCloseRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCloseRoom.Location = new System.Drawing.Point(77, 99);
             this.btnCloseRoom.Name = "btnCloseRoom";
-            this.btnCloseRoom.Size = new System.Drawing.Size(100, 28);
+            this.btnCloseRoom.Size = new System.Drawing.Size(75, 23);
             this.btnCloseRoom.TabIndex = 2;
             this.btnCloseRoom.Text = "Confirm";
             this.btnCloseRoom.UseVisualStyleBackColor = true;
@@ -80,9 +78,11 @@
             this.grpCloseRoom.Controls.Add(this.btnCloseRoom);
             this.grpCloseRoom.Controls.Add(this.label1);
             this.grpCloseRoom.Controls.Add(this.cboCloseRoom);
-            this.grpCloseRoom.Location = new System.Drawing.Point(97, 56);
+            this.grpCloseRoom.Location = new System.Drawing.Point(73, 46);
+            this.grpCloseRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpCloseRoom.Name = "grpCloseRoom";
-            this.grpCloseRoom.Size = new System.Drawing.Size(307, 211);
+            this.grpCloseRoom.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpCloseRoom.Size = new System.Drawing.Size(230, 171);
             this.grpCloseRoom.TabIndex = 3;
             this.grpCloseRoom.TabStop = false;
             this.grpCloseRoom.Text = "Close Room";
@@ -94,26 +94,26 @@
             this.backToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(513, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(385, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // backToolStripMenuItem
             // 
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
             // frmRoomClose
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 357);
+            this.ClientSize = new System.Drawing.Size(385, 290);
             this.Controls.Add(this.grpCloseRoom);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRoomClose";
             this.Text = "Close Room";
             this.Load += new System.EventHandler(this.frmRoomClose_Load);

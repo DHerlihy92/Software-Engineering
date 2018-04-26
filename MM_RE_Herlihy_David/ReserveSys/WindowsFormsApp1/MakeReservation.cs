@@ -35,10 +35,7 @@ namespace WindowsFormsApp1
         {
             //Validate Data
             if (!Validation.checkEmptyCombo(cboType))
-            {
-                cboType.Focus();
                 return;
-            }
 
             //Checks for availible rooms during selected dates and of the selected type
             DataSet ds = new DataSet();
@@ -63,8 +60,14 @@ namespace WindowsFormsApp1
                 newRes.setArrivalDate(dtpArrDate.Value.ToString("yyyy-MM-dd"));
                 newRes.setDeptDate(dtpDeptDate.Value.ToString("yyyy-MM-dd"));
 
+                //Disabling the user from changing information after selecting the button
+                dtpArrDate.Enabled = false;
+                dtpDeptDate.Enabled = false;
+                cboType.Enabled = false;
+                btnSelectRes.Enabled = false;
+                
                 //Showing Next Step
-                grpSelectRes.Hide();
+                Size = new Size(350, 500);
                 grpSelectRoom.Show();
             }
         }
@@ -73,17 +76,16 @@ namespace WindowsFormsApp1
         {
             //Validate Data
             if (!Validation.checkEmptyCombo(cboRoomNo))
-            {
-                cboRoomNo.Focus();
                 return;
-            }
 
             //Sets the RoomNo and Cost for the Reservation
             newRes.setRoomNO(Convert.ToUInt16(cboRoomNo.Text.Substring(0, 3)));
             newRes.setCost((Convert.ToDateTime(dtpDeptDate.Text) - Convert.ToDateTime(dtpArrDate.Text)).TotalDays * Reservation.findRate(newRes.getRoomNo()));
 
+            cboRoomNo.Enabled = false;
+            btnSelectRoom.Enabled = false;
             //Show Next Step
-            grpSelectRoom.Hide();
+            Size = new Size(600, 500);
             grpCustomer.Show();
         }
 
@@ -91,100 +93,52 @@ namespace WindowsFormsApp1
         {
             //Validate Data
             if (!Validation.checkNonNumeric(txtFname))
-            {
-                txtFname.Focus();
                 return;
-            }
 
             if (!Validation.checkNonNumeric(txtSname))
-            {
-                txtSname.Focus();
                 return;
-            }
 
             if (!Validation.checkNonNumeric(txtStreet))
-            {
-                txtStreet.Focus();
                 return;
-            }
 
             if (!Validation.checkNonNumeric(txtTown))
-            {
-                txtTown.Focus();
                 return;
-            }
 
             if (!Validation.checkNonNumeric(txtCounty))
-            {
-                txtCounty.Focus();
                 return;
-            }
 
             if (!Validation.checkNumeric(txtTelNo))
-            {
-                txtTelNo.Focus();
                 return;
-            }
 
             if (!Validation.checkNumeric(txtCardNo))
-            {
-                txtCardNo.Focus();
                 return;
-            }
 
             if (!Validation.checkNonNumeric(txtCardName))
-            {
-                txtCardName.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtFname))
-            {
-                txtFname.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtSname))
-            {
-                txtSname.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtStreet))
-            {
-                txtStreet.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtTown))
-            {
-                txtTown.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtCounty))
-            {
-                txtCounty.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtTelNo))
-            {
-                txtTelNo.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtCardNo))
-            {
-                txtCardNo.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtCardName))
-            {
-                txtCardName.Focus();
                 return;
-            }
 
             //Sets the Customer Details
             Customer newCust = new Customer();
@@ -210,7 +164,7 @@ namespace WindowsFormsApp1
             newRes.addReservation();
 
             //Display Confirmation
-            MessageBox.Show("You have successfully added a reservation for " + txtFname + " " + txtSname, "Reservation added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("You have successfully added a reservation for " + txtFname.Text + " " + txtSname.Text, "Reservation added", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //Resetting UI
             dtpArrDate.ResetText();
@@ -230,7 +184,19 @@ namespace WindowsFormsApp1
 
             //Resetting UI to first step
             grpCustomer.Hide();
+
+            cboRoomNo.Enabled = true;
+            btnSelectRoom.Enabled = true;
+            grpSelectRoom.Hide();
+
+            Size = new Size(350, 330);
+
+            dtpArrDate.Enabled = true;
+            dtpDeptDate.Enabled = true;
+            cboType.Enabled = true;
+            btnSelectRes.Enabled = true;
             grpSelectRes.Show();
+            
         }
 
         private void dtpArrDate_ValueChanged(object sender, EventArgs e)

@@ -46,7 +46,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(306, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(317, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,6 +60,7 @@
             // cboSelectRes
             // 
             this.cboSelectRes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSelectRes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboSelectRes.FormattingEnabled = true;
             this.cboSelectRes.Items.AddRange(new object[] {
             "23. John Smith, 112"});
@@ -108,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 306);
+            this.ClientSize = new System.Drawing.Size(317, 280);
             this.Controls.Add(this.grpSelectRes);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

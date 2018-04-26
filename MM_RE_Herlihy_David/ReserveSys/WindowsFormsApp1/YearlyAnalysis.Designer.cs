@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.grpSelect = new System.Windows.Forms.GroupBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -100,7 +100,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1193, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(327, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -113,17 +113,17 @@
             // 
             // chtYear
             // 
-            chartArea4.Name = "Revenue";
-            this.chtYear.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chtYear.Legends.Add(legend4);
+            chartArea3.Name = "Revenue";
+            this.chtYear.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chtYear.Legends.Add(legend3);
             this.chtYear.Location = new System.Drawing.Point(46, 251);
             this.chtYear.Name = "chtYear";
-            series4.ChartArea = "Revenue";
-            series4.Legend = "Legend1";
-            series4.Name = "Income";
-            this.chtYear.Series.Add(series4);
-            this.chtYear.Size = new System.Drawing.Size(572, 300);
+            series3.ChartArea = "Revenue";
+            series3.Legend = "Legend1";
+            series3.Name = "Income";
+            this.chtYear.Series.Add(series3);
+            this.chtYear.Size = new System.Drawing.Size(232, 73);
             this.chtYear.TabIndex = 6;
             this.chtYear.Text = "chart1";
             this.chtYear.Visible = false;
@@ -133,7 +133,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1193, 797);
+            this.ClientSize = new System.Drawing.Size(327, 335);
             this.Controls.Add(this.chtYear);
             this.Controls.Add(this.grpSelect);
             this.Controls.Add(this.menuStrip1);

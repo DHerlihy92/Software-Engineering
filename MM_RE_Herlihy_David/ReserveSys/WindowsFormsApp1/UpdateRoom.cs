@@ -49,31 +49,18 @@ namespace WindowsFormsApp1
         {
             //Validate Data
             if (!Validation.checkEmptyText(txtDescription))
-            {
-                txtDescription.Focus();
                 return;
-            }
 
             if (!Validation.checkNonNumeric(txtDescription))
-            {
-                txtDescription.Focus();
                 return;
-            }
 
-            if (!Validation.checkEmptyCombo(cboSelectType))
-            {
-                cboSelectType.Focus();
-                return;
-            }
 
             //Sets the Room Details
             updRoom.setRoomNo(Convert.ToInt16(txtSelectedRoomNo.Text));
             updRoom.setDescription(txtDescription.Text);
             updRoom.setType(cboSelectType.Text.Substring(0,2));
             if (updRoom.getStatus() == "C")
-            {
                 updRoom.setStatus("U");
-            }
 
             //Updates the Room Details in the Room File
             updRoom.updateRoom();
@@ -82,6 +69,7 @@ namespace WindowsFormsApp1
 
             //Reset UI
             cboSelectRoom.SelectedIndex = -1;
+            Size = new Size(400, 225);
             grpUpdateRoom.Hide();
             grpSelectRoom.Show();
         }
@@ -102,9 +90,7 @@ namespace WindowsFormsApp1
         private void cboSelectRoom_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboSelectRoom.SelectedIndex == -1)
-            {
                 return;
-            }
 
             //Loads the Rooms Details in the Text Boxes and displays them
             Room updRoom = new Room();
@@ -131,6 +117,7 @@ namespace WindowsFormsApp1
 
             setType(updRoom.getType());
 
+            Size = new Size(400, 450);
             grpUpdateRoom.Visible = true;
         }
 

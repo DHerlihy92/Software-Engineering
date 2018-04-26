@@ -35,11 +35,9 @@ namespace WindowsFormsApp1
         private void btnSelect_Click(object sender, EventArgs e)
         {
             if (!Validation.checkEmptyCombo(cboRoomType))
-            {
-                cboRoomType.Focus();
                 return;
-            }
 
+            Size = new Size(700, 700);
             chtType.Show();
             //define chart
             defineChart(dtpYearSelect.Value.Year.ToString().Substring(2, 2));
@@ -134,13 +132,13 @@ namespace WindowsFormsApp1
         private void defineChart(string year)
         {
             //define chart
-            chtType.Size = new Size(1000, 500);
+            chtType.Size = new Size(600, 350);
             chtType.ChartAreas[0].Name = "mainArea";
             chtType.ChartAreas["mainArea"].AxisX.LabelStyle.Font = new Font("Consolas", 8);
             chtType.ChartAreas["mainArea"].AxisY.LabelStyle.Font = new Font("Consolas", 8);
 
             chtType.ChartAreas["mainArea"].AxisY.Minimum = 0;
-            chtType.ChartAreas["mainArea"].AxisY.Interval = 50;
+            chtType.ChartAreas["mainArea"].AxisY.Interval = 25;
             chtType.ChartAreas["mainArea"].AxisY.Title = "Times Booked";
 
             chtType.ChartAreas["mainArea"].AxisX.Interval = 1;

@@ -37,13 +37,15 @@
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(95, 98);
+            this.label2.Location = new System.Drawing.Point(19, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 2;
@@ -51,20 +53,22 @@
             // 
             // cboRoomType
             // 
+            this.cboRoomType.BackColor = System.Drawing.SystemColors.Window;
             this.cboRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRoomType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboRoomType.FormattingEnabled = true;
             this.cboRoomType.Items.AddRange(new object[] {
             "Single",
             "Double",
             "Family"});
-            this.cboRoomType.Location = new System.Drawing.Point(187, 92);
+            this.cboRoomType.Location = new System.Drawing.Point(90, 61);
             this.cboRoomType.Name = "cboRoomType";
             this.cboRoomType.Size = new System.Drawing.Size(112, 21);
             this.cboRoomType.TabIndex = 1;
             // 
             // btnAddRooms
             // 
-            this.btnAddRooms.Location = new System.Drawing.Point(187, 170);
+            this.btnAddRooms.Location = new System.Drawing.Point(90, 129);
             this.btnAddRooms.Name = "btnAddRooms";
             this.btnAddRooms.Size = new System.Drawing.Size(75, 23);
             this.btnAddRooms.TabIndex = 3;
@@ -74,7 +78,7 @@
             // 
             // txtRoomNo
             // 
-            this.txtRoomNo.Location = new System.Drawing.Point(187, 53);
+            this.txtRoomNo.Location = new System.Drawing.Point(90, 35);
             this.txtRoomNo.Name = "txtRoomNo";
             this.txtRoomNo.ReadOnly = true;
             this.txtRoomNo.Size = new System.Drawing.Size(112, 20);
@@ -83,7 +87,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(103, 55);
+            this.label1.Location = new System.Drawing.Point(26, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 8;
@@ -97,7 +101,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(437, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(311, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -111,7 +115,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(94, 133);
+            this.label3.Location = new System.Drawing.Point(18, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 11;
@@ -119,23 +123,33 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(187, 131);
+            this.txtDescription.Location = new System.Drawing.Point(90, 88);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(112, 20);
             this.txtDescription.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtRoomNo);
+            this.groupBox1.Controls.Add(this.btnAddRooms);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtDescription);
+            this.groupBox1.Controls.Add(this.cboRoomType);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(36, 54);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(227, 178);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // frmAddRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 234);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtRoomNo);
-            this.Controls.Add(this.btnAddRooms);
-            this.Controls.Add(this.cboRoomType);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(311, 279);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmAddRoom";
@@ -143,6 +157,8 @@
             this.Load += new System.EventHandler(this.frmAddRoom_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

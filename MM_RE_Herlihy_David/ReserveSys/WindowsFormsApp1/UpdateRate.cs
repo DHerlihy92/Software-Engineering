@@ -64,28 +64,16 @@ namespace WindowsFormsApp1
         {
             //Validate Data
             if (!Validation.checkEmptyText(txtUpdatedAmount))
-            {
-                txtUpdatedAmount.Focus();
                 return;
-            }
 
             if (!Validation.checkNumeric(txtUpdatedAmount))
-            {
-                txtUpdatedAmount.Focus();
                 return;
-            }
 
             if (!Validation.checkEmptyText(txtUpdatedDescription))
-            {
-                txtUpdatedDescription.Focus();
                 return;
-            }
 
             if (!Validation.checkNonNumeric(txtUpdatedDescription))
-            {
-                txtUpdatedDescription.Focus();
                 return;
-            }
 
             //Sets the Rate Details
             Rates myRate = new Rates();
@@ -104,6 +92,7 @@ namespace WindowsFormsApp1
 
             cboSelectRate.SelectedIndex = -1;
             grpUpdateRate.Hide();
+            Size = new Size(400, 225);
             grpSelectRate.Show();
 
             //Loads the Rates again from the Rates File(shows updates)
@@ -120,9 +109,7 @@ namespace WindowsFormsApp1
         private void cboSelectRate_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cboSelectRate.SelectedIndex == -1)
-            {
                 return;
-            }
 
             //Loads the Rates Details in the Text Boxes and displays them
             Rates updRate = new Rates();
@@ -139,6 +126,7 @@ namespace WindowsFormsApp1
             txtUpdatedDescription.Text = updRate.getDescription();
             txtUpdatedAmount.Text = updRate.getRate().ToString();
 
+            Size = new Size(400, 450);
             grpUpdateRate.Visible = true;
         }
     }

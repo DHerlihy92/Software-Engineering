@@ -63,9 +63,9 @@
             this.grpSelectRes.Controls.Add(this.label1);
             this.grpSelectRes.Controls.Add(this.cboSelectRes);
             this.grpSelectRes.Location = new System.Drawing.Point(48, 65);
-            this.grpSelectRes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelectRes.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelectRes.Name = "grpSelectRes";
-            this.grpSelectRes.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelectRes.Padding = new System.Windows.Forms.Padding(2);
             this.grpSelectRes.Size = new System.Drawing.Size(218, 158);
             this.grpSelectRes.TabIndex = 5;
             this.grpSelectRes.TabStop = false;
@@ -74,7 +74,7 @@
             // btnSelectRes
             // 
             this.btnSelectRes.Location = new System.Drawing.Point(89, 89);
-            this.btnSelectRes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectRes.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectRes.Name = "btnSelectRes";
             this.btnSelectRes.Size = new System.Drawing.Size(56, 19);
             this.btnSelectRes.TabIndex = 3;
@@ -95,11 +95,12 @@
             // cboSelectRes
             // 
             this.cboSelectRes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSelectRes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboSelectRes.FormattingEnabled = true;
             this.cboSelectRes.Items.AddRange(new object[] {
             "23. John Smith, 112"});
             this.cboSelectRes.Location = new System.Drawing.Point(89, 53);
-            this.cboSelectRes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboSelectRes.Margin = new System.Windows.Forms.Padding(2);
             this.cboSelectRes.Name = "cboSelectRes";
             this.cboSelectRes.Size = new System.Drawing.Size(92, 21);
             this.cboSelectRes.TabIndex = 1;
@@ -112,7 +113,7 @@
             this.Controls.Add(this.grpSelectRes);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCheckOut";
             this.Text = "CheckOut";
             this.Load += new System.EventHandler(this.frmCheckOut_Load);

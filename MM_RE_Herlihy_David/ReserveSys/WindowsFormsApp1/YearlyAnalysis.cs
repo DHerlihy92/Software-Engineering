@@ -27,6 +27,7 @@ namespace WindowsFormsApp1
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            Size = new Size(700, 700);
             chtYear.Show();
             //define chart
             defineChart(dtpYearSelect.Value.Year.ToString().Substring(2, 2));
@@ -127,7 +128,7 @@ namespace WindowsFormsApp1
         private void defineChart(string year)
         {
             //define chart
-            chtYear.Size = new Size(1000, 500);
+            chtYear.Size = new Size(600, 350);
             chtYear.ChartAreas[0].Name = "mainArea";
             chtYear.ChartAreas["mainArea"].AxisX.LabelStyle.Font = new Font("Consolas", 8);
             chtYear.ChartAreas["mainArea"].AxisY.LabelStyle.Font = new Font("Consolas", 8);

@@ -19,7 +19,9 @@ namespace WindowsFormsApp1
 
             if (txt.Text.Equals(""))
             {
-                MessageBox.Show("You did not fill in this item.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("This text box must be filled in.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt.Focus();
+                txt.BackColor = Color.Beige;
                 check = false;
             }
             return check;
@@ -32,7 +34,8 @@ namespace WindowsFormsApp1
 
             if (cbo.Text.Equals(""))
             {
-                MessageBox.Show("You did not select an item.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("This field must be entered.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbo.BackColor = Color.Beige;
                 check = false;
             }
             return check;
@@ -47,6 +50,8 @@ namespace WindowsFormsApp1
             if (float.TryParse(txt.Text, out numeric))
             {
                 MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt.Focus();
+                txt.BackColor = Color.Beige;
                 check = false;
             }
             return check;
@@ -61,6 +66,8 @@ namespace WindowsFormsApp1
             if (!float.TryParse(txt.Text, out numeric))
             {
                 MessageBox.Show("This must be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt.Focus();
+                txt.BackColor = Color.Beige;
                 check = false;
             }
             return check;
