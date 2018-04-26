@@ -134,6 +134,7 @@ namespace WindowsFormsApp1
             cardNo = 0;
             cardName = "";
         }
+        //Generates next Customer ID
         public static int nextCustomer()
         {
             int nextCust;
@@ -159,6 +160,7 @@ namespace WindowsFormsApp1
 
         }
 
+        //Saves a customer to the Customer File
         public void addCustomer()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);

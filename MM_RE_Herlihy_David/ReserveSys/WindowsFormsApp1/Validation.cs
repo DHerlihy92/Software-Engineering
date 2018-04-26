@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     class Validation
     {
+        //Checks if a text box is empty
         public static Boolean checkEmptyText(TextBox txt)
         {
             Boolean check = true;
@@ -24,6 +25,7 @@ namespace WindowsFormsApp1
             return check;
         }
 
+        //Checks if a combo box is empty
         public static Boolean checkEmptyCombo(ComboBox cbo)
         {
             Boolean check = true;
@@ -36,6 +38,7 @@ namespace WindowsFormsApp1
             return check;
         }
 
+        //Checks if the text in a text box is Text only
         public static Boolean checkNonNumeric(TextBox txt)
         {
             Boolean check = true;
@@ -49,6 +52,7 @@ namespace WindowsFormsApp1
             return check;
         }
 
+        //Checks if the text in a text box is Numeric only
         public static Boolean checkNumeric(TextBox txt)
         {
             Boolean check = true;

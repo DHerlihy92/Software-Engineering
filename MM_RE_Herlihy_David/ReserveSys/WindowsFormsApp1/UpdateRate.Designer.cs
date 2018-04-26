@@ -39,8 +39,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpSelectRate = new System.Windows.Forms.GroupBox();
-            this.cboSelectRate = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.cboSelectRate = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.grpUpdateRate.SuspendLayout();
             this.grpSelectRate.SuspendLayout();
@@ -85,7 +85,7 @@
             // txtUpdatedAmount
             // 
             this.txtUpdatedAmount.Location = new System.Drawing.Point(130, 85);
-            this.txtUpdatedAmount.MaxLength = 6;
+            this.txtUpdatedAmount.MaxLength = 3;
             this.txtUpdatedAmount.Name = "txtUpdatedAmount";
             this.txtUpdatedAmount.Size = new System.Drawing.Size(96, 20);
             this.txtUpdatedAmount.TabIndex = 11;
@@ -154,6 +154,15 @@
             this.grpSelectRate.TabStop = false;
             this.grpSelectRate.Text = "Select Rate";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(76, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Rate:";
+            // 
             // cboSelectRate
             // 
             this.cboSelectRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -168,15 +177,6 @@
             this.cboSelectRate.TabIndex = 1;
             this.cboSelectRate.SelectedIndexChanged += new System.EventHandler(this.cboSelectRate_SelectedIndexChanged);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(76, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Rate:";
-            // 
             // UpdateRate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,7 +186,7 @@
             this.Controls.Add(this.grpSelectRate);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UpdateRate";
             this.Text = "UpdateRate";
             this.Load += new System.EventHandler(this.UpdateRate_Load);

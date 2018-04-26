@@ -39,18 +39,23 @@ namespace WindowsFormsApp1
             //Display confirmation message
             DialogResult dResult = MessageBox.Show("Are you sure you would like to close this room?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (dResult == DialogResult.Yes) {
-
+            if (dResult == DialogResult.Yes)
+            {
+                //Checks if the Room has Reservations
                 if (Room.checkFreeRooms(cboCloseRoom.Text))
                 {
-                    Room.closeRoom(Convert.ToInt16(cboCloseRoom.Text));
+                    Room.changeRoomStatus(Convert.ToInt16(cboCloseRoom.Text), "C");
 
-                    MessageBox.Show("The selected Room has been closed.", "Room closed.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Room " + cboCloseRoom.Text + " has been closed.", "Room Closed.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Reset UI
                     cboCloseRoom.SelectedIndex = -1;
                 }
                 else
-                    MessageBox.Show("The selected Room has reservations booked. Unable to close.", "Unable To Close.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                {
+                    MessageBox.Show("Room " + cboCloseRoom.Text + " has reservations booked. Unable to close.", "Unable To Close.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Reset UI
+                    cboCloseRoom.SelectedIndex = -1;
+                }
             }
             else if(dResult == DialogResult.No)
 
@@ -67,6 +72,7 @@ namespace WindowsFormsApp1
 
         private void frmRoomClose_Load(object sender, EventArgs e)
         {
+            //Loads a list of all Rooms
             DataSet ds = new DataSet();
             cboCloseRoom.Items.Clear();
             //add check if room has any reservations

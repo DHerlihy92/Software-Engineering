@@ -24,7 +24,6 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             parent = Parent;
-            txtRateType.Focus();
         }
 
 
@@ -67,13 +66,6 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            if(float.Parse(txtRateAmount.Text) > 999)
-            {
-                MessageBox.Show("A rate cannot exceed 999.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRateAmount.Focus();
-                return;
-            }
-
             if (Rates.rateExists(txtRateType.Text))
             {
                 MessageBox.Show("This rate has already been entered in the database. Please enter a new rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -84,6 +76,7 @@ namespace WindowsFormsApp1
                 return;
             }
             
+            //Sets the details of new rate from form
             Rates newRate = new Rates();
 
             newRate.setRoom_Type(txtRateType.Text);
@@ -91,7 +84,6 @@ namespace WindowsFormsApp1
             newRate.setRate(Convert.ToDecimal(txtRateAmount.Text));
 
             //Saves details in the Rates File
-
             newRate.addRate();
 
             //Display confirmation message
@@ -109,11 +101,5 @@ namespace WindowsFormsApp1
             this.Close();
             parent.Show();
         }
-
-        private void frmAddRate_Load(object sender, EventArgs e)
-        {
-            txtRateType.Focus();
-        }
-
     }
 }

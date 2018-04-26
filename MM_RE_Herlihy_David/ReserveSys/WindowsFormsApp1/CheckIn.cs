@@ -45,24 +45,27 @@ namespace WindowsFormsApp1
 
             if (dResult == DialogResult.Yes)
             {
-                
-
+                //Sets the Payment Details
                 Payment newPayment = new Payment();
 
                 newPayment.setPayID(Payment.nextPayID());
                 newPayment.setPayDate(DateTime.Now.ToString("yyyy-MM-dd"));
                 newPayment.setResNo(Convert.ToInt16(cboSelectRes.Text.Substring(0, 4)));
 
+                //Saves the Payment Details to the Payments File
                 newPayment.addPayment();
                 
                 //Display Confirmation Message
                 MessageBox.Show("The selected reservation has been checked-in and the customer has been charged.", "Check In Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                //Changes Reservation Status to "CI" for Check-In and Room Status to "O" for Occupied
                 Reservation.changeResStatus(Convert.ToInt16(cboSelectRes.Text.Substring(0, 4)), "CI");
+                Room.changeRoomStatus(Reservation.findRoom(Convert.ToInt16(cboSelectRes.Text.Substring(0, 4))), "O");
 
                 //Resetting UI
                 cboSelectRes.SelectedIndex = -1;
             }
+
             else if (dResult == DialogResult.No)
             {
                 //Resetting UI
@@ -72,6 +75,7 @@ namespace WindowsFormsApp1
 
         private void frmCheckIn_Load(object sender, EventArgs e)
         {
+            //Loads all Reservations where Arrival Date is the same as the present day
             DataSet ds = new DataSet();
             cboSelectRes.Items.Clear();
             ds = Reservation.getCheckIns(ds, DateTime.Now.ToString("yyyy-MM-dd"));

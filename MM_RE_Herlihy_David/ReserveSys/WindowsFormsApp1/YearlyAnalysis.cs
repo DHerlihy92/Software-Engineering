@@ -34,17 +34,8 @@ namespace WindowsFormsApp1
             //Define the chart series
             defineSeries();
 
+            //Fills the chart with the Revenue of the selected year divided by months
             fillChart(dtpYearSelect.Value.Year.ToString().Substring(2,2));
-            
-            
-            //if (dtpYearSelect.Text.Equals(""))
-            //{
-            //MessageBox.Show("You did not make a selection.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //dtpYearSelect.Focus();
-            //  return;
-            //}
-
-            //picChartYear.Show();
         }
 
         private void mnuBack_Click(object sender, EventArgs e)
@@ -133,18 +124,6 @@ namespace WindowsFormsApp1
             chtYear.Series["Revenue"].XValueType = ChartValueType.String;
         }
 
-        private void frmYearlyAnalysis_Load(object sender, EventArgs e)
-        {
-            //define chart
-            //defineChart();
-
-            //Define the chart series
-            //defineSeries();
-
-            //fill Chart
-            //fillChart();
-        }
-
         private void defineChart(string year)
         {
             //define chart
@@ -161,7 +140,6 @@ namespace WindowsFormsApp1
             chtYear.ChartAreas["mainArea"].AxisX.Title = "Month";
 
             chtYear.ChartAreas["mainArea"].AxisX.MajorGrid.Enabled = false;
-            //chtData.ChartAreas["mainArea"].AxisY.MajorGrid.Enabled = false;
 
             //chart title   
             chtYear.Titles.Add("Monthly Revenue 20" + year);

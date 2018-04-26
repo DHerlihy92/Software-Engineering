@@ -87,19 +87,14 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            if (float.Parse(txtUpdatedAmount.Text) > 999)
-            {
-                MessageBox.Show("A rate cannot exceed 999.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUpdatedAmount.Focus();
-                return;
-            }
-
+            //Sets the Rate Details
             Rates myRate = new Rates();
 
             myRate.setRoom_Type(txtSelectedRateType.Text);
             myRate.setDescription(txtUpdatedDescription.Text);
             myRate.setRate(Convert.ToDecimal(txtUpdatedAmount.Text));
 
+            //Updates the Rate in the Rates File
             myRate.updRate();
 
             //Display confirmation message
@@ -111,6 +106,7 @@ namespace WindowsFormsApp1
             grpUpdateRate.Hide();
             grpSelectRate.Show();
 
+            //Loads the Rates again from the Rates File(shows updates)
             DataSet ds = new DataSet();
             cboSelectRate.Items.Clear();
             ds = Rates.getAllRates(ds);
@@ -128,12 +124,13 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            //Loads the Rates Details in the Text Boxes and displays them
             Rates updRate = new Rates();
             updRate.loadRate(cboSelectRate.Text.Substring(0,2));
            
             if (updRate.getRoom_Type().Equals(""))
             {
-                MessageBox.Show("No Details Found", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No Details Found for this Rate. Please select another", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSelectedRateType.Focus();
                 return;
             }

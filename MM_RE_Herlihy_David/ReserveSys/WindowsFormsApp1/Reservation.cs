@@ -108,6 +108,7 @@ namespace WindowsFormsApp1
             roomNo = 0;
         }
 
+        //Generates next ResNo
         public static int nextRes()
         {
             int nextRes;
@@ -134,13 +135,15 @@ namespace WindowsFormsApp1
 
         }
 
+        //Gets all rooms of the selected type that do not have any bookings during the selected dates and are not closed
         public static DataSet getUnoccupiedRooms(DataSet DS, string ArrivalDate, string DeptDate, string Type)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String strSQL = "SELECT * FROM Rooms rm WHERE rm.RoomNo NOT IN (SELECT DISTINCT RoomNo FROM Reservations rs WHERE(rs.Arrival_Date BETWEEN DATE '"+ ArrivalDate +
-                            "' AND DATE '" + DeptDate + "') OR(rs.Dept_Date BETWEEN DATE '" + ArrivalDate + "' AND DATE '" +DeptDate +"') OR (rs.Arrival_Date < DATE '" + ArrivalDate + 
-                            "' AND rs.Dept_Date > DATE '" + DeptDate +"')) AND rm.Room_Type = '" + Type +  "' AND NOT rm.Room_Status = 'C'";
+            String strSQL = "SELECT * FROM Rooms rm WHERE rm.RoomNo NOT IN (SELECT DISTINCT RoomNo FROM Reservations rs WHERE(rs.Arrival_Date BETWEEN DATE '"
+                + ArrivalDate + "' AND DATE '" + DeptDate + "') OR (rs.Dept_Date BETWEEN DATE '" + ArrivalDate + "' AND DATE '" + DeptDate +
+                "') OR (rs.Arrival_Date < DATE '" + ArrivalDate + "' AND rs.Dept_Date > DATE '" + DeptDate +"')) AND rm.Room_Type = '" + Type +
+                "' AND NOT rm.Room_Status = 'C'";
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
@@ -153,6 +156,7 @@ namespace WindowsFormsApp1
             return DS;
         }
 
+        //Saves a Reservations Details to the Reservations File
         public void addReservation()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -168,7 +172,8 @@ namespace WindowsFormsApp1
             conn.Close();
         }
 
-        public static double findRate( int RoomNo)
+        //Returns a rate amount based on the selected Room Number
+        public static double findRate(int RoomNo)
         {
             double roomRate;
 
@@ -190,6 +195,30 @@ namespace WindowsFormsApp1
             return roomRate;
         }
 
+        //Returns the Room Number of the selected Reservation
+        public static int findRoom(int ResNo)
+        {
+            int roomNo;
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            String strSQL = "SELECT RoomNo FROM Reservations WHERE ResNo = " + ResNo;
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+
+            roomNo = Convert.ToInt16(dr.GetValue(0));
+
+            conn.Close();
+
+            return roomNo;
+        }
+
+        //Gets all Reservations based on the Forename and Surname of the Customer
         public static DataSet getReservations(DataSet DS, string FName, string SName)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -208,6 +237,7 @@ namespace WindowsFormsApp1
             return DS;
         }
 
+        //Changes a Reservations Status
         public static void changeResStatus(int ResNo, string status)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -221,6 +251,7 @@ namespace WindowsFormsApp1
             conn.Close();
         }
 
+        //Gets all Reservations available to be Checked-In
         public static DataSet getCheckIns(DataSet DS, String Date)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -238,6 +269,7 @@ namespace WindowsFormsApp1
             return DS;
         }
 
+        //Gets all Reservations available to be Checked-Out
         public static DataSet getCheckOuts(DataSet DS, String Date)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -255,6 +287,7 @@ namespace WindowsFormsApp1
             return DS;
         }
 
+        //Gets all Reservations that are No-Shows
         public static DataSet getNoShows(DataSet DS)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -272,16 +305,15 @@ namespace WindowsFormsApp1
             return DS;
         }
 
+        //Gets the Monthly Revenue of the Hotel for the specified year
         public static DataSet getMonthlyData(DataSet DS, String Year)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            //connection name conn.Open();
             String strSQL = "SELECT TO_CHAR(Pay_Date,'MM'), SUM(Amount_Paid) FROM Payments WHERE Pay_Date LIKE '%" + Year + "' GROUP BY TO_CHAR(Pay_Date, 'MM') " +
                             "ORDER BY TO_CHAR(Pay_Date, 'MM')";
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
-            //cmd.CommandType = CommandType.Text;
             OracleDataAdapter da = new OracleDataAdapter(cmd);
 
             da.Fill(DS, "ss");
@@ -291,16 +323,15 @@ namespace WindowsFormsApp1
             return DS;
         }
 
+        //Gets the amount of bookings for the specified year based on the Room Type
         public static DataSet getTypeData(DataSet DS, String Year, String Type)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            //connection name conn.Open();
             String strSQL = "SELECT TO_CHAR(Dept_Date,'MM'), COUNT(ResNo) FROM Reservations rs JOIN Rooms rm ON rm.RoomNo = rs.RoomNo WHERE Dept_Date LIKE '%" + Year + "' AND rm.Room_Type" +
                 "= '" + Type + "' GROUP BY TO_CHAR(Dept_Date, 'MM') ORDER BY TO_CHAR(Dept_Date, 'MM')";
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
-            //cmd.CommandType = CommandType.Text;
             OracleDataAdapter da = new OracleDataAdapter(cmd);
 
             da.Fill(DS, "ss");
@@ -308,7 +339,6 @@ namespace WindowsFormsApp1
             conn.Close();
 
             return DS;
-
         }
     }
 }

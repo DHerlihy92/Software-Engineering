@@ -141,7 +141,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmYearlyAnalysis";
             this.Text = "YearlyAnalysis";
-            this.Load += new System.EventHandler(this.frmYearlyAnalysis_Load);
             this.grpSelect.ResumeLayout(false);
             this.grpSelect.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

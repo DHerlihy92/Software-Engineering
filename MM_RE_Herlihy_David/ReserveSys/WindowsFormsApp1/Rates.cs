@@ -10,12 +10,10 @@ namespace WindowsFormsApp1
 {
     class Rates
     {
-        //instance variables
         private string room_Type;
         private string description;
         private decimal rate;
 
-        //Setters
         public void setRoom_Type(string Room_Type)
         {
             this.room_Type = Room_Type;
@@ -31,7 +29,6 @@ namespace WindowsFormsApp1
             this.rate = Rate;
         }
 
-        //Getters
         public string getRoom_Type()
         {
             return room_Type;
@@ -47,8 +44,6 @@ namespace WindowsFormsApp1
             return rate;
         }
 
-        //no args constructor
-
         public Rates()
         {
             room_Type = "";
@@ -56,7 +51,6 @@ namespace WindowsFormsApp1
             rate = 0;
         }
 
-        //Arg Constructor
         public Rates(string Room_Rate, string Description, decimal Rate)
         {
             setRoom_Type(Room_Rate);
@@ -82,7 +76,7 @@ namespace WindowsFormsApp1
             return DS;
         }
 
-        //Insert a new rate
+        //Saves a Rate to the Rates File
         public void addRate()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -98,7 +92,7 @@ namespace WindowsFormsApp1
             conn.Close();
         }
 
-        //validation that a rate does not  already exist
+        //validation that a rate does not already exist
         public static Boolean rateExists(String Room_Type)
         {
             Boolean ans = false;
@@ -125,9 +119,6 @@ namespace WindowsFormsApp1
         //retriving a specified rate for updating
         public void loadRate(string Room_Type)
         {
-            //Rates updRate = new Rates();
-
-            //DataSet DS = new DataSet();
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
             conn.Open();
@@ -146,21 +137,18 @@ namespace WindowsFormsApp1
             conn.Close();
         }
 
+        //Updates a Rates Details in the Rates File
         public void updRate()
         {
-            //connect to database
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-            //Define SQL query to INSERT stock record
             String strSQL = "UPDATE Rates SET Rate_Description = '" + this.description.ToUpper() + "', Room_Rate = " + this.rate +
            " WHERE Room_Type = '" + this.room_Type + "'";
 
-            //Execute the command
             OracleCommand cmd = new OracleCommand(strSQL, conn);
             cmd.ExecuteNonQuery();
 
-            //close DB connection
             conn.Close();
         }
     }

@@ -57,7 +57,7 @@ namespace WindowsFormsApp1
                 return;
             }
 
-
+            //Sets the Room Details from the form
             Room nextRoom = new Room();
             nextRoom.setRoomNo(Convert.ToInt16(txtRoomNo.Text));
             nextRoom.setType(cboRoomType.Text.Substring(0, 2));
@@ -65,10 +65,6 @@ namespace WindowsFormsApp1
             
             //Save data in Rooms File
             nextRoom.addRoom();
-
-
-
-            
 
             //Display confirmation message
             MessageBox.Show("You successfully added Room " + txtRoomNo.Text, "Room Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -82,6 +78,7 @@ namespace WindowsFormsApp1
 
         private void frmAddRoom_Load(object sender, EventArgs e)
         {
+            //Loads all Room Types from Rates File
             txtRoomNo.Text = Room.nextRoomNo().ToString();
 
             DataSet ds = new DataSet();

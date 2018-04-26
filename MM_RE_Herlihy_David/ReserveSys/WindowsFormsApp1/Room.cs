@@ -16,7 +16,6 @@ namespace WindowsFormsApp1
         private string type;
         private string status;
 
-        //setters
         public void setRoomNo(int RoomNo)
         {
             this.roomNo = RoomNo;
@@ -37,7 +36,6 @@ namespace WindowsFormsApp1
             this.status = Status;
         }
 
-        //getters
         public int getRoomNo()
         {
             return roomNo;
@@ -58,7 +56,7 @@ namespace WindowsFormsApp1
             return status;
         }
 
-        //no args constructor
+
         public Room()
         {
             roomNo = 0;
@@ -67,7 +65,6 @@ namespace WindowsFormsApp1
             status = "U";
         }
 
-        //Arg Constructor
         public Room(int RoomNo, string Description, string Type, string Status)
         {
             setRoomNo(RoomNo);
@@ -225,13 +222,13 @@ namespace WindowsFormsApp1
             conn.Close();
         }
 
-        public static void closeRoom(int RoomNo)
+        public static void changeRoomStatus(int RoomNo, string status)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
             //Define SQL query to INSERT stock record
-            String strSQL = "UPDATE Rooms SET Room_Status = 'C' WHERE RoomNo = " + RoomNo;
+            String strSQL = "UPDATE Rooms SET Room_Status = '" + status + "' WHERE RoomNo = " + RoomNo;
 
             //Execute the command
             OracleCommand cmd = new OracleCommand(strSQL, conn);

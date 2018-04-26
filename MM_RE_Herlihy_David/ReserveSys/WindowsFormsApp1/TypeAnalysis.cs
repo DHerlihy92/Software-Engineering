@@ -47,6 +47,7 @@ namespace WindowsFormsApp1
             //Define the chart series
             defineSeries();
 
+            //fills chart with number of bookings divided by room type
             fillChart(dtpYearSelect.Value.Year.ToString().Substring(2, 2), cboRoomType.Text.Substring(0,2));
 
 
@@ -57,8 +58,6 @@ namespace WindowsFormsApp1
 
             //fill chart
             chtType.Series["Revenue"].Points.Clear();
-
-
 
             //get data from database
             DataSet ds = new DataSet();
@@ -148,7 +147,6 @@ namespace WindowsFormsApp1
             chtType.ChartAreas["mainArea"].AxisX.Title = "Month";
 
             chtType.ChartAreas["mainArea"].AxisX.MajorGrid.Enabled = false;
-            //chtData.ChartAreas["mainArea"].AxisY.MajorGrid.Enabled = false;
 
             //chart title   
             chtType.Titles.Clear();
@@ -157,6 +155,7 @@ namespace WindowsFormsApp1
 
         private void frmTypeAnalysis_Load(object sender, EventArgs e)
         {
+            //Loads all types from Rates File
             DataSet ds = new DataSet();
             cboRoomType.Items.Clear();
             ds = Rates.getAllRates(ds);

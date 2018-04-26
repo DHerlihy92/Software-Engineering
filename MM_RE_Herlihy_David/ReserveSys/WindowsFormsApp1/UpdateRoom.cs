@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
     public partial class frmUpdateRoom : Form
     {
         frmMainMenu parent;
+        Room updRoom = new Room();
 
         public frmUpdateRoom updateRoom;
         public frmUpdateRoom()
@@ -46,8 +47,7 @@ namespace WindowsFormsApp1
 
         private void btnConfirmUpdate_Click(object sender, EventArgs e)
         {
-            float check;
-
+            //Validate Data
             if (!Validation.checkEmptyText(txtDescription))
             {
                 txtDescription.Focus();
@@ -60,24 +60,27 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            if (!Validation.checkEmptyCombo(cboSelectRoom))
+            if (!Validation.checkEmptyCombo(cboSelectType))
             {
-                cboSelectRoom.Focus();
+                cboSelectType.Focus();
                 return;
             }
 
-
-            Room updRoom = new Room();
-
+            //Sets the Room Details
             updRoom.setRoomNo(Convert.ToInt16(txtSelectedRoomNo.Text));
             updRoom.setDescription(txtDescription.Text);
             updRoom.setType(cboSelectType.Text.Substring(0,2));
-            updRoom.setStatus("U");
+            if (updRoom.getStatus() == "C")
+            {
+                updRoom.setStatus("U");
+            }
 
+            //Updates the Room Details in the Room File
             updRoom.updateRoom();
 
-            MessageBox.Show("You have successfully updated the room", "Room Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("You have successfully updated Room " + txtSelectedRoomNo.Text, "Room Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            //Reset UI
             cboSelectRoom.SelectedIndex = -1;
             grpUpdateRoom.Hide();
             grpSelectRoom.Show();
@@ -85,6 +88,7 @@ namespace WindowsFormsApp1
 
         private void frmUpdateRoom_Load(object sender, EventArgs e)
         {
+            //Loads all Rooms from the Rooms File
             DataSet ds = new DataSet();
             cboSelectRoom.Items.Clear();
             ds = Room.getAllRooms(ds);
@@ -102,13 +106,14 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            //Loads the Rooms Details in the Text Boxes and displays them
             Room updRoom = new Room();
             updRoom.loadRoom(cboSelectRoom.Text);
 
             if (updRoom.getRoomNo().Equals(""))
             {
-                MessageBox.Show("No Details Found", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtRoomNo.Focus();
+                MessageBox.Show("No Details Found for this Room. Please select another.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboSelectRoom.Focus();
                 return;
             }
 
@@ -131,6 +136,7 @@ namespace WindowsFormsApp1
 
         public void setType(String Type)
         {
+            //Loads a list of all Room Types from the Rates File
             cboSelectType.SelectedIndex = 0;
 
             while (!cboSelectType.Text.Substring(0, 2).Equals(Type))

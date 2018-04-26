@@ -39,7 +39,6 @@ namespace WindowsFormsApp1
                 return;
             }
 
-
             //Display Yes/No dialog to confirm Reservation
             DialogResult dResult = MessageBox.Show("Are you sure this reservation is correct.", "Processing Check-Out", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
@@ -48,7 +47,9 @@ namespace WindowsFormsApp1
                 //Display Confirmation Message
                 MessageBox.Show("The selected reservation has been checked-out", "Check Out Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                //Changes Reservation Status to "CO" for Check-Out and Room Status to "U" for Unoccupied
                 Reservation.changeResStatus(Convert.ToInt16(cboSelectRes.Text.Substring(0, 4)), "CO");
+                Room.changeRoomStatus(Reservation.findRoom(Convert.ToInt16(cboSelectRes.Text.Substring(0, 4))), "U");
 
                 //Resetting UI
                 cboSelectRes.SelectedIndex = -1;
@@ -62,6 +63,7 @@ namespace WindowsFormsApp1
 
         private void frmCheckOut_Load(object sender, EventArgs e)
         {
+            //Loads all Reservations where Departure Date is the same as the present day
             DataSet ds = new DataSet();
             cboSelectRes.Items.Clear();
             ds = Reservation.getCheckOuts(ds, DateTime.Now.ToString("yyyy-MM-dd"));

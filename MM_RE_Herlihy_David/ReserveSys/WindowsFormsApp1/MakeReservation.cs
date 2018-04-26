@@ -33,14 +33,7 @@ namespace WindowsFormsApp1
 
         private void btnSelectRes_Click(object sender, EventArgs e)
         {
-            //Validate Date
-            /*if(dtpArrDate.Text == dtpDeptDate.Text)
-            {
-                MessageBox.Show("Arrival Date and Departure Date must not be on the same day.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dtpArrDate.Focus();
-                return;
-            }*/
-
+            //Validate Data
             if (!Validation.checkEmptyCombo(cboType))
             {
                 cboType.Focus();
@@ -60,12 +53,13 @@ namespace WindowsFormsApp1
             }
             else
             {
-
+                //Loads the availible Rooms from the Rooms File
                 for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
                 {
                     cboRoomNo.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
                 }
-
+                   
+                //Sets the Arrival and Departure Date for the Reservation
                 newRes.setArrivalDate(dtpArrDate.Value.ToString("yyyy-MM-dd"));
                 newRes.setDeptDate(dtpDeptDate.Value.ToString("yyyy-MM-dd"));
 
@@ -84,7 +78,7 @@ namespace WindowsFormsApp1
                 return;
             }
 
-
+            //Sets the RoomNo and Cost for the Reservation
             newRes.setRoomNO(Convert.ToUInt16(cboRoomNo.Text.Substring(0, 3)));
             newRes.setCost((Convert.ToDateTime(dtpDeptDate.Text) - Convert.ToDateTime(dtpArrDate.Text)).TotalDays * Reservation.findRate(newRes.getRoomNo()));
 
@@ -96,8 +90,6 @@ namespace WindowsFormsApp1
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             //Validate Data
-            float check;
-
             if (!Validation.checkNonNumeric(txtFname))
             {
                 txtFname.Focus();
@@ -194,6 +186,7 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            //Sets the Customer Details
             Customer newCust = new Customer();
 
             newCust.setCustID(Customer.nextCustomer());
@@ -206,9 +199,10 @@ namespace WindowsFormsApp1
             newCust.setCardNo(Convert.ToInt16(txtCardNo.Text));
             newCust.setCardName(txtCardName.Text);
 
-            //Saves data to the Customer File
+            //Saves the Customer Detail to the Customer File
             newCust.addCustomer();
 
+            //Sets the ResNo and CustID for the Reservation
             newRes.setResNo(Reservation.nextRes());
             newRes.setCustID(newCust.getCustID());
 
@@ -216,7 +210,7 @@ namespace WindowsFormsApp1
             newRes.addReservation();
 
             //Display Confirmation
-            MessageBox.Show("You have successfully added a reservation.", "Reservation added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("You have successfully added a reservation for " + txtFname + " " + txtSname, "Reservation added", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //Resetting UI
             dtpArrDate.ResetText();
@@ -241,11 +235,13 @@ namespace WindowsFormsApp1
 
         private void dtpArrDate_ValueChanged(object sender, EventArgs e)
         {
+            //Sets the second dtp to one day after the first dtp, ensuring the user cannot book the Arrival Date and Departure Date on the same Day
             dtpDeptDate.MinDate = dtpArrDate.Value.AddDays(1);
         }
 
         private void frmMakeReservation_Load(object sender, EventArgs e)
         {
+            //Loads All the Types from the Rates File
             DataSet ds = new DataSet();
             cboType.Items.Clear();
             ds = Rates.getAllRates(ds);

@@ -81,7 +81,7 @@
             // txtRateAmount
             // 
             this.txtRateAmount.Location = new System.Drawing.Point(104, 122);
-            this.txtRateAmount.MaxLength = 6;
+            this.txtRateAmount.MaxLength = 3;
             this.txtRateAmount.Name = "txtRateAmount";
             this.txtRateAmount.Size = new System.Drawing.Size(101, 20);
             this.txtRateAmount.TabIndex = 2;
@@ -149,7 +149,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmAddRate";
             this.Text = "Add Rate";
-            this.Load += new System.EventHandler(this.frmAddRate_Load);
             this.grpRateAdd.ResumeLayout(false);
             this.grpRateAdd.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
