@@ -85,7 +85,7 @@ namespace WindowsFormsApp1
             {
                 for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
                 {
-                    cboSelectRes.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString());
+                    cboSelectRes.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " " + ds.Tables[0].Rows[i][1].ToString().Substring(0,10));
                 }
             }
 

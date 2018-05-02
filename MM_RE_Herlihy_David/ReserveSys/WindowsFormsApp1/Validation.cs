@@ -45,15 +45,15 @@ namespace WindowsFormsApp1
         public static Boolean checkNonNumeric(TextBox txt)
         {
             Boolean check = true;
-            float numeric;
 
-            if (float.TryParse(txt.Text, out numeric))
+            if (txt.Text.Any(char.IsSymbol) || txt.Text.Any(char.IsNumber))
             {
                 MessageBox.Show("This must not be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt.Focus();
                 txt.BackColor = Color.Beige;
                 check = false;
             }
+
             return check;
         }
 
@@ -61,9 +61,8 @@ namespace WindowsFormsApp1
         public static Boolean checkNumeric(TextBox txt)
         {
             Boolean check = true;
-            float numeric;
 
-            if (!float.TryParse(txt.Text, out numeric))
+            if (txt.Text.Any(char.IsSymbol) || txt.Text.Any(char.IsLetter))
             {
                 MessageBox.Show("This must be a numeric value only.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt.Focus();

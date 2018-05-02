@@ -48,7 +48,7 @@ namespace WindowsFormsApp1
             if (!Validation.checkNumeric(txtRateAmount))
                 return;
 
-            if (Rates.rateExists(txtRateType.Text))
+            if (!Rates.rateExists(txtRateType.Text))
             {
                 MessageBox.Show("This rate has already been entered in the database. Please enter a new rate.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtRateType.Focus();

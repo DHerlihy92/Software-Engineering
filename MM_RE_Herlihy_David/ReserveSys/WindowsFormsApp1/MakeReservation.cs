@@ -207,6 +207,7 @@ namespace WindowsFormsApp1
 
         private void frmMakeReservation_Load(object sender, EventArgs e)
         {
+            dtpArrDate.MinDate = DateTime.Today;
             //Loads All the Types from the Rates File
             DataSet ds = new DataSet();
             cboType.Items.Clear();
